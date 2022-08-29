@@ -21,7 +21,7 @@
                 <ul style="list-style: none">
                 <% for(let i = 1; i<games.length; i++) { %>
                     <% const thisGame = games[i] %>
-                    <li><a href="/<%=thisGame._id%>"> <%=thisGame.name%></a></li>
+                    <li><a href="games/<%=thisGame._id%>"> <%=thisGame.name%></a></li>
                     <li><img src="<%=thisGame.image%>"></li>
                     <li><%=thisGame.rating%></li>
                 <%}%>
