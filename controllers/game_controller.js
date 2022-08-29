@@ -48,8 +48,8 @@ router.get('/:id', async (req,res, next) =>{
     try{
         const foundGame = await db.Games.findById(req.params.id)
         console.log(foundGame);
-        const context = {games: foundGame}
-        res.render('show.ejs', context)
+        const context = {game: foundGame}
+        res.render('games_show.ejs', context)
 
     } catch (error){
         console.log(error);
@@ -73,7 +73,7 @@ router.delete('/:id', async (req, res, next)=>{
 });
 
 //Edit Route
-router.get('/:id/edit', (req, res, next)=>{
+router.get('/:id/edit', async (req, res, next)=>{
     try{
         const updatedGame = await db.Games.findById(req.params.id)
         console.log(updatedGame);
