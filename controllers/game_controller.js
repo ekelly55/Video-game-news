@@ -22,7 +22,6 @@ router.post('/', async (req, res) => {
     
     } catch (err) {
         console.log(err)
-
     }
         
 })
@@ -34,6 +33,7 @@ router.get('/', async (req, res) => {
         const allPosts = await db.Games.find()
         const context = { games: allPosts };
         // console.log(allPosts)
+        //res.send(allPosts)
         res.render('index.ejs', context)
     } catch(err) {
         console.log(err)
