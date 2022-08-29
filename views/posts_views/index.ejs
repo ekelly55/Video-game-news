@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ("./ejs_partials/head.ejs")%>
+<body>
+    <%- include ("./ejs_partials/nav.ejs")%>
+    <main>
+        <section class="upcoming-game">
+            <h2 class="upcoming-heading"> Upcoming </h2>
+            <div>
+                <img src="<%= Post[0].image%>">
+            </div>
+            <ul>
+                <li> </li>
+            </ul>
+        </section>
+    </main>
+    <%- include ("./ejs_partials/footer.ejs")%>
+</body>
+</html>
