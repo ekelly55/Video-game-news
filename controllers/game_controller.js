@@ -13,6 +13,9 @@ const videogames = require('../models')
 
 //Routes will be here
 
+
+
+
 // POST
 router.post('/', async (req, res) => {
 
@@ -40,6 +43,11 @@ router.get('/', async (req, res) => {
         console.log(err)
         
     }
+})
+
+//New route
+router.get('/new', (req,res) =>{
+    res.render('games_new.ejs');
 })
 
 
