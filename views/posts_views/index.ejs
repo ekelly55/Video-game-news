@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ("./ejs_partials/head.ejs")%>
+<body>
+    <%- include ("./ejs_partials/nav.ejs")%>
+    <main>
+        <section class="upcoming-game">
+            <h2 class="upcoming-heading"> Upcoming </h2>
+            <h3 class="upcoming-name"> <%=Games[0].name%> </h3>
+            <div>
+                <img src="<%= Games[0].image%>">
+            </div>
+            <ul>
+                <li> <%=Games[0].release%></li>
+                <li> <a href="<%=Games[0].trailer%>">Trailer</a></li>
+            </ul>
+        </section>
+        <section class="games-index">
+            <h2 class="featured-games">  Featured Games </h2>
+            <div>
+                <ul>
+                <% for(let i = 1; i<games.length; i++) { %>
+                    <% const thisGame = games[i] %>
+                    <li><a href="/<%=thisGame._id%>"> <%=thisGame.name%></a></li>
+                    <li><%=thisGame.image%></li>
+                    <li><%=thisGame.rating%></li>
+                <%}%>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <%- include ("./ejs_partials/footer.ejs")%>
+</body>
+</html>
