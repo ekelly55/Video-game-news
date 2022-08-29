@@ -65,10 +65,10 @@ const games = [
 
 async function reloadData() {
 	try {
-		let deleted = await db.Products.deleteMany({});
+		let deleted = await db.Games.deleteMany({});
 		console.log(deleted)
 		// console.log(deleted);
-		let reloading = await db.Products.insertMany(products);
+		let reloading = await db.Games.insertMany(games);
 		console.log(reloading)
 	} catch (err) {
 		console.log(err);

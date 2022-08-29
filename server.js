@@ -14,11 +14,7 @@ app.set('view engine', 'ejs')
 app.use('/games', gamesController)
 app.use(express.static('public'))
 
-/*
-//404 error route
-app.get('*', (req, res) =>{
-    res.render('404')
-})
-*/
+
+
 //server
 app.listen(4000, () => console.log('starting server at port:', PORT))

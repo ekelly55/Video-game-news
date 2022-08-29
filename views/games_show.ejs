@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ("./ejs_partials/head.ejs")%>
+<body>
+    <%- include ("./ejs_partials/nav.ejs")%>
+    <main>
+        <h1 class="game-name"><%=game.name%></h1>
+        <ul class="game-info">
+            <li><img src="<%=game.image%>"></li>
+            <li>User Rating: <%=game.rating%></li>
+            <li>Genre: <%=game.genre%></li>
+            <li>Platforms: <%=game.platform%></li>
+            <li>Price: $<%=game.price%></li>
+            <li>Release Date:<%=game.release%></li>
+            <li href ="<%=game.trailer%>"> Trailer</li>
+            
+        </ul>
+    </main>
+    <%- include ("./ejs_partials/footer.ejs")%>
+</body>
+</html>
