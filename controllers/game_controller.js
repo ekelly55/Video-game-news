@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
         const context = { games: allPosts };
         // console.log(allPosts)
         //res.send(allPosts)
-        res.render('index.ejs', context)
+        res.render('games_index.ejs', context)
     } catch(err) {
         console.log(err)
         

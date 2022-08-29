@@ -10,7 +10,7 @@
             <div>
                 <img src="<%= games[0].image%>">
             </div>
-            <ul>
+            <ul style="list-style: none">
                 <li> <%=games[0].release%></li>
                 <li> <a href="<%=games[0].trailer%>">Trailer</a></li>
             </ul>
@@ -18,11 +18,11 @@
         <section class="games-index">
             <h2 class="featured-games">  Featured Games </h2>
             <div>
-                <ul>
+                <ul style="list-style: none">
                 <% for(let i = 1; i<games.length; i++) { %>
                     <% const thisGame = games[i] %>
                     <li><a href="/<%=thisGame._id%>"> <%=thisGame.name%></a></li>
-                    <li><%=thisGame.image%></li>
+                    <li><img src="<%=thisGame.image%>"></li>
                     <li><%=thisGame.rating%></li>
                 <%}%>
                 </ul>
