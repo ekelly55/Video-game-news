@@ -9,6 +9,7 @@ const gamesSchema = new mongoose.Schema(
         price: {type: Number},
         trailer: {type: String},
         platform: {type: String},
+        rating: {type: String},
 
 
 

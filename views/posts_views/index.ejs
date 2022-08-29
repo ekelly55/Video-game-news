@@ -11,9 +11,22 @@
                 <img src="<%= Games[0].image%>">
             </div>
             <ul>
-                <li> <%=Games[0].%></li>
-                <li> <%=Games[0].trailer%></li>
+                <li> <%=Games[0].release%></li>
+                <li> <a href="<%=Games[0].trailer%>">Trailer</a></li>
             </ul>
+        </section>
+        <section class="games-index">
+            <h2 class="featured-games">  Featured Games </h2>
+            <div>
+                <ul>
+                <% for(let i = 1; i<games.length; i++) { %>
+                    <% const thisGame = games[i] %>
+                    <li><a href="/<%=thisGame._id%>"> <%=thisGame.name%></a></li>
+                    <li><%=thisGame.image%></li>
+                    <li><%=thisGame.rating%></li>
+                <%}%>
+                </ul>
+            </div>
         </section>
     </main>
     <%- include ("./ejs_partials/footer.ejs")%>
