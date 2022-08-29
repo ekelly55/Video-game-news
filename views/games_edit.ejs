@@ -5,6 +5,96 @@
     <%- include ("./ejs_partials/nav.ejs")%>
     <main>
         <h1>Latest</h1>
+        <form action="/games/<%= game._id%>?_method=PUT" method="POST">
+            <div>
+                <label> Name:</label>
+              <input
+                class="input"
+                type="text"
+                placeholder="<%= game.name %> "
+                name="name"
+               
+              />
+            </div>
+          </div>
+          
+          <div>
+            <label>Image:</label>
+              <input
+                class="input"
+                type="text"
+                placeholder="<%= game.image %>"
+                name="image"
+                
+              />
+            </div>
+          </div>
+          
+          <div>
+              <div class="control">
+                <label>Release Date:</label>
+              <input
+                class="input"
+                type="text"
+                placeholder="<%= game.release %> "
+                name="release"
+               
+              />
+            </div>
+          </div>
+          <div>
+            <label>Genre:</label>
+              <input
+                class="input"
+                type="text"
+                placeholder="<%= game.genre %>"
+                name="genre"
+                
+              />
+            </div>
+          </div>
+          
+          <div>
+              <div class="control">
+                  <label>Price:</label>
+                  <input
+                class="input"
+                type="text"
+                placeholder="<%= game.price %> "
+                name="price"
+                
+              />
+            </div>
+          </div>
+          <div>
+            <label>Trailer:</label>
+              <input
+                class="input"
+                type="text"
+                placeholder="<%= game.trailer %>"
+                name="trailer"
+                
+              />
+            </div>
+          </div>
+          
+          <div>
+              <div class="control">
+                <label>Platform:</label>
+              <input
+                class="input"
+                type="text"
+                placeholder="<%= game.platform %> "
+                name="platform"
+                
+              />
+            </div>
+          </div>
+              <div>
+           <input type="submit" value="Edit Game">
+              </div>
+          </div>
+          </form>
         
     </main>
     <%- include ("./ejs_partials/footer.ejs")%>
