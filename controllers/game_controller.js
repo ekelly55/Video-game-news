@@ -48,7 +48,7 @@ router.get('/:id', async (req,res, next) =>{
     try{
         const foundGame = await db.Games.findById(req.params.id)
         console.log(foundGame);
-        const context = {videogames: foundGame}
+        const context = {games: foundGame}
         res.render('show.ejs', context)
 
     } catch (error){
@@ -57,6 +57,24 @@ router.get('/:id', async (req,res, next) =>{
         return next();
     }
 });
+
+//Delete Route
+router.delete('/:id', async (req, res, next)=>{
+    try{
+        const deletedGame = await db.Games.findByIdAndDelete(req.params.id)
+        console.log(deletedGame)
+        res.redirect('games');
+
+    } catch (error) {
+        console.log(error)
+        req.error = error
+        return next();
+    }
+});
+
+
+
+
 
 
 
