@@ -13,16 +13,18 @@ const db = require('../models')
 //Routes will be here
 
 // POST
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
 
     try{
         const newPost = await db.Games.create(createdPost);
         // console.log(newPost)
         res.redirect('/games')
+    
     } catch (err) {
-        // console.log(err)
-        res.redirect('/404')
+        console.log(err)
+
     }
+        
 })
 
 // INDEX
@@ -35,7 +37,7 @@ router.get('/', async (req, res) => {
         res.render('index.ejs', context)
     } catch(err) {
         console.log(err)
-        res.redirect('/404')
+        
     }
 })
 
