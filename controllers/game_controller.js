@@ -1,10 +1,11 @@
 const express= require('express');
 const router = express.Router();
-
+const methodOverride = (require('method-override'))
 
 //Middleware: will have express json and url encoded eventually
 router.use(express.json());
 router.use(express.urlencoded({ extended: false }));
+router.use(methodOverride('_method'))
 
 //Model import here
 const db = require('../models')
@@ -17,10 +18,10 @@ const videogames = require('../models')
 
 
 // POST
-router.post('/', async (req, res) => {
-
+router.post('/new', async (req, res) => {
+    
     try{
-        const newPost = await db.Games.create(createdPost);
+        const newPost = await db.Games.create(req.body);
         // console.log(newPost)
         res.redirect('/games')
     
