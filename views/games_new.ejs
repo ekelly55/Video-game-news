@@ -4,7 +4,78 @@
 <body>
     <%- include ("./ejs_partials/nav.ejs")%>
     <main>
-        
+        <div>
+            <h1 class="title">New Game</h1>
+        </div>
+        <div>
+            <form action="/games" method="POST">
+                <div>
+                    <label for="name">Name:</label>
+                    <input 
+                        type="text"
+                        placeholder="name"
+                        name="name"
+                        id="name"
+                        />
+                </div>
+                <div>
+                    <label for="image">Image:</label>
+                    <input 
+                        class="input"
+                        type="text"
+                        placeholder="http://"
+                        name="image"
+                        id="image"
+                        />
+                </div>
+                <div>
+                    <label for="release">Release Date:</label>
+                    <input 
+                        type="text"
+                        placeholder="mm/dd/yyyy"
+                        name="release"
+                        id="release"
+                        />
+                </div>
+                <div>
+                    <label for="genre">Genre:</label>
+                    <input 
+                        type="text"
+                        placeholder="genre"
+                        name="genre"
+                        id="genre"
+                        />
+                </div>
+                <div>
+                    <label for="release">Price:</label>
+                    <input 
+                        type="number"
+                        placeholder="price (number only)"
+                        name="price"
+                        id="price"
+                        />
+                </div>
+                <div>
+                    <label for="trailer">Trailer:</label>
+                    <input 
+                        type="text"
+                        placeholder="http://"
+                        name="trailer"
+                        id="trailer"
+                        />
+                </div>
+                <div>
+                    <label for="platform">Platforms:</label>
+                    <input 
+                        type="text"
+                        placeholder="PS5, Xbox Series X, etc"
+                        name="platform"
+                        id="platform"
+                        />
+                </div>
+                <button class="new">Add New Game</button>
+            </form>
+        </div>
     </main>
     <%- include ("./ejs_partials/footer.ejs")%>
 </body>
