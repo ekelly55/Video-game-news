@@ -8,6 +8,7 @@ router.use(express.urlencoded({ extended: false }));
 
 //Model import here
 const db = require('../models')
+const videogames = require('../models')
 
 
 //Routes will be here
@@ -40,6 +41,22 @@ router.get('/', async (req, res) => {
         
     }
 })
+
+
+//Show route
+router.get('/:id', async (req,res, next) =>{
+    try{
+        const foundGame = await db.Games.findById(req.params.id)
+        console.log(foundGame);
+        const context = {videogames: foundGame}
+        res.render('show.ejs', context)
+
+    } catch (error){
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+});
 
 
 
