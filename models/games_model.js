@@ -1,3 +1,4 @@
+const db = require('./index');
 const games = [
     {
         name: 'Super People',
