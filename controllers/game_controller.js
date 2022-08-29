@@ -13,15 +13,15 @@ const db = require('../models')
 //Routes will be here
 
 // POST
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
 
     try{
         const newPost = await db.Games.create(createdPost);
         // console.log(newPost)
         res.redirect('/games')
     } catch (err) {
-        // console.log(err)
-        res.redirect('/404')
+        console.log(err)
+        
     }
 })
 
@@ -32,10 +32,11 @@ router.get('/', async (req, res) => {
         const allPosts = await db.Games.find()
         const context = { games: allPosts };
         // console.log(allPosts)
+        //res.send(allPosts)
         res.render('index.ejs', context)
     } catch(err) {
         console.log(err)
-        res.redirect('/404')
+        
     }
 })
 

@@ -12,10 +12,11 @@ app.set('view engine', 'ejs')
 //Middleware for each request
 app.use('/games', gamesController)
 
+/*
 //404 error route
 app.get('*', (req, res) =>{
     res.render('404')
 })
-
+*/
 //server
 app.listen(4000, () => console.log('starting server at port:', PORT))
