@@ -7,7 +7,7 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: false }));
 
 //Model import here
-const db = require('..models')
+const db = require('../models')
 
 
 //Routes will be here
@@ -16,7 +16,7 @@ const db = require('..models')
 router.get('/', async (req, res) => {
 
     try{
-        const newPost = await db.*Schema*.create(createdPost);
+        const newPost = await db.Games.create(createdPost);
         // console.log(newPost)
         res.redirect('/games')
     } catch (err) {
@@ -29,10 +29,10 @@ router.get('/', async (req, res) => {
 router.get('/', async (req, res) => {
 
     try {
-        const allPosts = await db.*Schema*.find()
-        const context = { : };
+        const allPosts = await db.Games.find()
+        const context = { games: allPosts };
         // console.log(allPosts)
-        res.render('inddex.ejs', context)
+        res.render('index.ejs', context)
     } catch(err) {
         console.log(err)
         res.redirect('/404')

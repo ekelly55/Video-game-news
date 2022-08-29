@@ -61,4 +61,18 @@ const games = [
         
     },
 
-]
+];
+
+async function reloadData() {
+	try {
+		let deleted = await db.Products.deleteMany({});
+		console.log(deleted)
+		// console.log(deleted);
+		let reloading = await db.Products.insertMany(products);
+		console.log(reloading)
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+reloadData();
