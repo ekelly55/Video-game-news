@@ -2,7 +2,7 @@ const express = require('express');
 
 
 //need to set up DB connection
-//require('./config/db.connection')
+require('./config/db.connections')
 
 
 const gamesController = require('./controllers/game_controller')
