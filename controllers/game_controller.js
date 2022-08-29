@@ -85,6 +85,7 @@ router.get('/:id/edit', async (req, res, next)=>{
     try{
         const updatedGame = await db.Games.findById(req.params.id)
         console.log(updatedGame);
+        res.render('games_edit.ejs', {game: updatedGame})
 
     } catch (error){
         console.log(error)
