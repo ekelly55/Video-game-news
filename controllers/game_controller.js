@@ -72,7 +72,32 @@ router.delete('/:id', async (req, res, next)=>{
     }
 });
 
+//Edit Route
+router.get('/:id/edit', (req, res, next)=>{
+    try{
+        const updatedGame = await db.Games.findById(req.params.id)
+        console.log(updatedGame);
 
+    } catch (error){
+        console.log(error)
+        req.error = error
+        return next()
+    }
+})
+
+//Update Route
+router.put ('/:id', async (req,res,next)=>{
+    try{
+        const updatedGame = await db.Games.findByIdAndUpdate(req.params.id, req.body);
+        console.log(updatedGame)
+        return res.redirect('/games')
+
+    } catch (error){
+        console.log(error)
+        req.error = error
+        return next()
+    }
+})
 
 
 
