@@ -9,8 +9,10 @@ const app = express()
 const PORT = 4000
 app.set('view engine', 'ejs')
 
+
 //Middleware for each request
 app.use('/games', gamesController)
+app.use(express.static('public'))
 
 
 
