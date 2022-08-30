@@ -41,7 +41,7 @@
         <h2 class="comment-head">All Comments</h2>
         <section>
             <ul>
-                <% comment.forEach(comment => { %>
+                <% comments.forEach(comment => { %>
                     <li><%=comment.game.name%> | <%= comment.rating%> | <a href="/comments/<%=comment._id%>">Link</a></li>
                 <% }) %> 
             </ul>
