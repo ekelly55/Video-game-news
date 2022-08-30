@@ -16,7 +16,7 @@ const db = require('../models')
 
 
 
-// POST
+//POST new game
 router.post('/new', async (req, res) => {
     
     try{
