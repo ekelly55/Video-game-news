@@ -56,11 +56,9 @@ router.get('/:id', async (req,res, next) =>{
     try{
         const foundGame = await db.Games.findById(req.params.id)
         const gameComments = await db.Comment.find({game: foundGame._id})
-        const userRatings = []
-        console.log(userRatings)
         const context = {game: foundGame, id: foundGame._id, comments: gameComments}
         res.render('games_show.ejs', context)
-        userRatings.push(gameComments.rating)
+       
 
     } catch (error){
         console.log(error);
