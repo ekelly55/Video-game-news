@@ -15,37 +15,9 @@
             <li href ="<%=game.trailer%>"> Trailer</li>
             
         </ul>
+        
 
-        <section>
-            <h2>Create a new comment</h2>
-            <form method="POST" action="/games/<%=game._id%>">
-    
-                <div>
-                    Rating: 
-                    <input name="rating" type="number" min="0" max="5"/>
-                </div>
-                <div>
-                    Comment: 
-                    <textarea name="comment">
-    
-                    </textarea>
-                <div>
-                    <input name="game" type="hidden" value="<%=game._id%>" />
-                </div>
-                </div>
-    
-                
-                <button type="submit">Add your comment</button>
-            </form>
-        </section>
-        <h2 class="comment-head">All Comments</h2>
-        <section>
-            <ul>
-                <% comment.forEach(comment => { %>
-                    <li><%=comment.game.name%> | <%= comment.rating%> | <a href="/comments/<%=comment._id%>">Link</a></li>
-                <% }) %> 
-            </ul>
-        </section>
+
     </main>
     <%- include ("./ejs_partials/footer.ejs")%>
 </body>

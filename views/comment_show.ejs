@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ("./ejs_partials/head.ejs")%>
+<body>
+    <%- include ("./ejs_partials/nav.ejs")%>
+
+<h2 class="comment-head">All Comments</h2>
+<section>
+    <ul>
+        <% comments.forEach(comment => { %>
+            <li><%=comment.game.name%> | <%= comment.rating%> | <a href="/comments/<%=comment._id%>">Link</a></li>
+        <% }) %> 
+    </ul>
+</section>
+<%- include ("./ejs_partials/footer.ejs")%>
+</body>
+</html>
