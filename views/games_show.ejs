@@ -38,11 +38,15 @@
             </form>
         </section>
         <h2 class="comment-head">All Comments</h2>
-        <ul>
-            <% comments.forEach(comment => { %>
-                <li><%=comment.game.name%> | <%= comment.rating%> | <a href="/comments/<%=comment._id%>">Link</a></li>
-            <% }) %> 
-        </ul>
+        <div class="comment-display">
+
+            <ul>
+                <% comments.forEach(comment => { %>
+                    <li>User Rating: <%= comment.rating%></li>
+                    <li>User Comment: <%=comment.comment%></li> 
+                <% }) %> 
+            </ul>
+        </div>
         
 
     </main>

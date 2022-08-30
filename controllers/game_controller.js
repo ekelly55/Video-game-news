@@ -55,7 +55,8 @@ router.get('/new', (req,res) =>{
 router.get('/:id', async (req,res, next) =>{
     try{
         const foundGame = await db.Games.findById(req.params.id)
-        const context = {game: foundGame, comments: []}
+        const gameComments = await db.Comment.find({game: foundGame._id})
+        const context = {game: foundGame, id: foundGame._id, comments: gameComments}
         res.render('games_show.ejs', context)
 
     } catch (error){

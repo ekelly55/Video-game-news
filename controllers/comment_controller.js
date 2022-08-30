@@ -17,7 +17,7 @@ const db = require("../models");
 router.post("/:id", async (req, res, nex) => {
     try {
         const newComment = await db.Comment.create(req.body);
-        console.log(newComment)
+        console.log(newComment.game)
         //res.send(newComment)
         res.redirect(`/games/${newComment.game}`)
     } catch (err) {
@@ -25,5 +25,17 @@ router.post("/:id", async (req, res, nex) => {
         next()
     }
 });
+
+//show new comment on game show page
+router.get("/:id/", async (req, res, next) => {
+    try {
+        const foundComment = await db.Comment.findById(req.params.id).populate("game").exec()
+        res.render("games_show.ejs", {comments: foundComment})
+    } catch (err) {
+        console.log(err)
+        next()
+    }
+});
+
 
 module.exports = router
