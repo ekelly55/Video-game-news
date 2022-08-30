@@ -38,6 +38,14 @@
                 <button type="submit">Add your comment</button>
             </form>
         </section>
+        <h2 class="comment-head">All Comments</h2>
+        <section>
+            <ul>
+                <% comment.forEach(comment => { %>
+                    <li><%=comment.game.name%> | <%= comment.rating%> | <a href="/comments/<%=comment._id%>">Link</a></li>
+                <% }) %> 
+            </ul>
+        </section>
     </main>
     <%- include ("./ejs_partials/footer.ejs")%>
 </body>
