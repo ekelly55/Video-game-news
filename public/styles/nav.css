@@ -1,4 +1,4 @@
-.topnav {
+/* .topnav {
     font-size: 20px;
     float: left;
     display: block;
@@ -8,4 +8,12 @@
     text-decoration: none;
     font-size: 20px;
     border-bottom: 3px solid transparent;
-  }
+  } */
+
+.topnav {
+  padding-left: 2em;
+  padding-right: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
