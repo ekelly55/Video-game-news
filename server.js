@@ -3,6 +3,7 @@ const express = require('express');
 //need to set up DB connection
 require('./config/db.connections')
 const gamesController = require('./controllers/game_controller')
+const commentsController = require("./controllers/comment_controller")
 
 //app configuration
 const app = express()
@@ -12,6 +13,7 @@ app.set('view engine', 'ejs')
 
 //Middleware for each request
 app.use('/games', gamesController)
+app.use("/games/:id", commentsController)
 app.use(express.static('public'))
 
 
