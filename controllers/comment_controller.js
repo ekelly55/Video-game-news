@@ -11,12 +11,19 @@ router.use(methodOverride("_method"))
 const db = require("../models");
 
 
+//create new comment
+
+router.get("/new", (req, res) => {
+    res.render("comment_new.ejs")
+});
+
 //post new comment
-router.post("/id", async (req, res) => {
+router.post("/:id", async (req, res) => {
     try {
         const newComment = await db.Comment.create(req.body);
         console.log(newComment)
-        res.redirect("games/id")
+        res.send(newComment)
+        //res.redirect("games/:id")
     } catch (err) {
         console.log(err)
     }
