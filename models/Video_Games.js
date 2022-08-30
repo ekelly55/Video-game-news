@@ -10,9 +10,7 @@ const gamesSchema = new mongoose.Schema(
         trailer: {type: String},
         platform: {type: String},
         rating: {type: String},
-
-
-
+        comments: {type: mongoose.Types.ObjectId, ref: "Comment"},
     },
 );
 

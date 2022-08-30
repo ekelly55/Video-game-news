@@ -9,7 +9,6 @@ router.use(methodOverride('_method'))
 
 //Model import here
 const db = require('../models')
-const videogames = require('../models')
 
 
 //Routes will be here
