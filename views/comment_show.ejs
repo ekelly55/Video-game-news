@@ -4,14 +4,10 @@
 <body>
     <%- include ("./ejs_partials/nav.ejs")%>
 
-<h2 class="comment-head">All Comments</h2>
-<section>
-    <ul>
-        <% comments.forEach(comment => { %>
-            <li><%=comment.game.name%> | <%= comment.rating%> | <a href="/comments/<%=comment._id%>">Link</a></li>
-        <% }) %> 
-    </ul>
-</section>
+    <h1>Commentfor: <%=comment.game.name%></h1>
+    <img src="<%=comment.game.image%>" alt="Image for <%=comment.game.name%> game" />
+    <p><%=comment.comment%></p>
+    <h3>Checkout this product:<a href="/games/<%=comment.game._id%>"> <%=comment.game.name%></a></h3>
 <%- include ("./ejs_partials/footer.ejs")%>
 </body>
 </html>

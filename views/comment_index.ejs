@@ -4,6 +4,11 @@
 <body>
     <%- include ("./ejs_partials/nav.ejs")%>
     <section>
+        <ul>
+            <% comments.forEach(comment => { %>
+                <li><%=comment.game.name%> | <%= comment.rating%> | <a href="/comments/<%=comment._id%>">Link</a></li>
+            <% }) %> 
+        </ul>
         <h2>Create a new comment</h2>
         <form method="POST" action="/comments/:id">
 
