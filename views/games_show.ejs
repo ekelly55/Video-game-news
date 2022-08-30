@@ -5,9 +5,16 @@
     <%- include ("./ejs_partials/nav.ejs")%>
     <main>
         <h1 class="game-name"><%=game.name%></h1>
+        <img src="<%=game.image%>">
+        <h3>User Rating: <%let sum = 0%>
+            <% for(let i=0; i<comments.length; i++) {%>
+            <%let ratings = comments[i].rating%>
+            <%sum = sum + ratings%>
+        <%}%>
+            <%let avgUserRatings = sum/comments.length%>
+            <%=avgUserRatings.toFixed(1)%>
+    </h3>
         <ul class="game-info"style="list-style: none">
-            <li><img src="<%=game.image%>"></li>
-            <li>User Rating: <%=game.rating%></li>
             <li>Genre: <%=game.genre%></li>
             <li>Platforms: <%=game.platform%></li>
             <li>Price: $<%=game.price%></li>
