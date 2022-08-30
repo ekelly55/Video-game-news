@@ -14,12 +14,12 @@ const db = require("../models");
 
 
 //post new comment
-router.post("/", async (req, res, nex) => {
+router.post("/:id", async (req, res, nex) => {
     try {
         const newComment = await db.Comment.create(req.body);
         console.log(newComment)
-        res.send(newComment)
-        //res.redirect("games/:id")
+        //res.send(newComment)
+        res.redirect(`/games/${newComment.game}`)
     } catch (err) {
         console.log(err)
         next()
