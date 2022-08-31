@@ -19,10 +19,10 @@
         <h2 class = "fGame">Featured Games</h2>
         <section>
         <div class="games-index">
-                <ul style="list-style: none">
+                <ul class= "one" style="list-style: none">
                 <% for(let i = 1; i<games.length; i++) { %>
                     <% const thisGame = games[i] %>
-                    <div class="one">
+                    <div>
                         <img src="<%=thisGame.image%>">
                         <li><a href="/games/<%=thisGame._id%>"> <%=thisGame.name%></a></li>
                         <li><%=thisGame.rating%></li>
@@ -37,6 +37,7 @@
             </form>
         </section>
         <%- include ("./ejs_partials/footer.ejs")%>
+        <link rel="stylesheet" href="styles/index.css">
     </main>
 </body>
 </html>
