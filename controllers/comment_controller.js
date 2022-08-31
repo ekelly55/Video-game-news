@@ -17,7 +17,7 @@ const db = require("../models");
 router.post("/:id", async (req, res, nex) => {
     try {
         const newComment = await db.Comment.create(req.body);
-        //console.log(newComment.rating)
+        console.log(newComment.rating)
         //res.send(newComment)
         res.redirect(`/games/${newComment.game}`)
     } catch (err) {

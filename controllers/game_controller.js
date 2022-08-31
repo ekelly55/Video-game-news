@@ -14,10 +14,14 @@ const db = require('../models')
 //Routes will be here
 
 
+//go to news route
 
+router.get("/news", (req, res) => {
+    res.render("theNews.ejs")
+});
 
 //POST new game
-router.post('/new', async (req, res) => {
+router.post('/', async (req, res) => {
     
     try{
         const newPost = await db.Games.create(req.body);
@@ -72,7 +76,7 @@ router.delete('/:id', async (req, res, next)=>{
     try{
         const deletedGame = await db.Games.findByIdAndDelete(req.params.id)
         console.log(deletedGame)
-        res.redirect('games');
+        res.redirect('/');
 
     } catch (error) {
         console.log(error)
@@ -85,7 +89,7 @@ router.delete('/:id', async (req, res, next)=>{
 router.get('/:id/edit', async (req, res, next)=>{
     try{
         const updatedGame = await db.Games.findById(req.params.id)
-        console.log(updatedGame);
+        //console.log(updatedGame);
         res.render('games_edit.ejs', {game: updatedGame})
 
     } catch (error){
