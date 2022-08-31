@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             default: "https://i.imgur.com/VfBLBKRs.png"
         },
+        
     },
     {
         timestamps: true,
