@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const db = require('../models');
+const { User } = require('../models');
 
 
 //JSON methods
@@ -23,7 +24,9 @@ router.get('/register', (req,res) =>{
 router.post('/login', async (req,res,next) =>{
     try{
         let userData = req.body
-        let foundUser = await db.User.findOne({email:userData.email})
+        console.log(userData)
+        let foundUser = await db.User.findOne({username:userData.username})
+        console.log(foundUser)
         if(!foundUser) {
             return res.redirect('/register')
 
@@ -31,6 +34,7 @@ router.post('/login', async (req,res,next) =>{
             const match = await bcrypt.compare(userData.password, foundUser.password)
             console.log(match);
             if (!match) return res.send('Email or password are incorrect')
+            console.log(req.session)
             req.session.currentUser = {
                 id: foundUser._id,
                 username: foundUser.username,
@@ -39,11 +43,35 @@ router.post('/login', async (req,res,next) =>{
         }
     }catch (err) {
         console.log(err);
-        req.error = error
         next()
+        
     }
 })
 
+//Create register route
+router.post('/register', async (req,res,next) =>{
+    try{
+        let userData = req.body
+        let foundUser = await User.exists({email: userData.email})
+        if (foundUser){
+            return res.redirect('/login')
+
+        } else {
+            let salt = await bcrypt.genSalt(12)
+            console.log(salt)
+            let hash = await bcrypt.hash(userData.password, salt)
+            console.log(hash)
+            userData.password = hash;
+            const newUser = await db.User.create(userData)
+            return res.redirect ('/login')
+        }
+
+    } catch (err){
+        console.log (err);
+        req.error = error
+        next ();
+    }
+})
 
 
 
