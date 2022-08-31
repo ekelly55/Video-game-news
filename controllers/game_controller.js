@@ -17,7 +17,7 @@ const db = require('../models')
 //go to news route
 
 router.get("/news", (req, res) => {
-    res.render("theNews.ejs")
+    res.render("thenews.ejs")
 });
 
 //POST new game
@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res, next)=>{
     try{
         const deletedGame = await db.Games.findByIdAndDelete(req.params.id)
         console.log(deletedGame)
-        res.redirect('/');
+        res.redirect('/games/');
 
     } catch (error) {
         console.log(error)
