@@ -5,8 +5,8 @@
     <main>
     <%- include ("./ejs_partials/nav.ejs")%>
         <section class="upcoming">
-            <h2 class="upcoming-heading"> Upcoming </h2>
-            <h3 class="upcoming-name"> <%=games[0].name%> </h3>
+            <h2> Upcoming </h2>
+            <h3> <%=games[0].name%> </h3>
             <div class="upcoming-game">
                 <img src="<%= games[0].image%>">
             </div>
@@ -15,14 +15,16 @@
                 <li> <a href="<%=games[0].trailer%>">Trailer</a></li>
             </ul>
         </section>
-        <section class="games-index">
-            <h2 class="featured-games">  Featured Games </h2>
+
+        <h2 class = "fGame">Featured Games</h2>
+        <section>
+        <div class="games-index">
                 <ul style="list-style: none">
                 <% for(let i = 1; i<games.length; i++) { %>
                     <% const thisGame = games[i] %>
                     <div class="one">
+                        <img src="<%=thisGame.image%>">
                         <li><a href="games/<%=thisGame._id%>"> <%=thisGame.name%></a></li>
-                        <li><img src="<%=thisGame.image%>"></li>
                         <li><%=thisGame.rating%></li>
                     </div>
                 <%}%>
