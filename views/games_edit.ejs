@@ -4,15 +4,15 @@
 <body>
     <%- include ("./ejs_partials/nav.ejs")%>
     <main>
-        <h1>Latest</h1>
+        <h1>Edit Game</h1>
         <form action="/games/<%= game._id%>?_method=PUT" method="POST">
             <div>
                 <label> Name:</label>
               <input
                 class="input"
                 type="text"
-                placeholder="<%= game.name %> "
                 name="name"
+                value="<%= game.name %>"
                
               />
             </div>
@@ -23,8 +23,8 @@
               <input
                 class="input"
                 type="text"
-                placeholder="<%= game.image %>"
                 name="image"
+                value="<%= game.image %>"
                 
               />
             </div>
@@ -36,8 +36,8 @@
               <input
                 class="input"
                 type="text"
-                placeholder="<%= game.release %> "
                 name="release"
+                value="<%= game.release %>"
                
               />
             </div>
@@ -47,9 +47,9 @@
               <input
                 class="input"
                 type="text"
-                placeholder="<%= game.genre %>"
                 name="genre"
-                
+                value="<%= game.genre %>"
+
               />
             </div>
           </div>
@@ -60,9 +60,8 @@
                   <input
                 class="input"
                 type="text"
-                placeholder="<%= game.price %> "
                 name="price"
-                
+                value="<%= game.price %>"
               />
             </div>
           </div>
@@ -71,9 +70,9 @@
               <input
                 class="input"
                 type="text"
-                placeholder="<%= game.trailer %>"
                 name="trailer"
-                
+                value="<%= game.trailer %>"
+
               />
             </div>
           </div>
@@ -84,8 +83,8 @@
               <input
                 class="input"
                 type="text"
-                placeholder="<%= game.platform %> "
                 name="platform"
+                value="<%= game.platform %> "
                 
               />
             </div>
