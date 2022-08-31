@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ("./ejs_partials/head.ejs")%>
+<body>
+    <%- include ("./ejs_partials/nav.ejs")%>
+    <section>
+        <ul>
+            <% comments.forEach(comment => { %>
+                <li><%=comment.game.name%> | <%= comment.rating%> | <a href="/comments/<%=comment._id%>">Link</a></li>
+            <% }) %> 
+        </ul>
+        <h2>Create a new comment</h2>
+        <form method="POST" action="/comments/:id">
+
+            <div>
+                Rating: 
+                <input name="rating" type="number" min="0" max="5"/>
+            </div>
+            <div>
+                Comment: 
+                <textarea name="comment">
+
+                </textarea>
+            <div>
+                <input name="game" type="hidden" value="<%=game._id%>" />
+            </div>
+            </div>
+
+            
+            <button type="submit">Add your comment</button>
+        </form>
+    </section>
+    <h2 class="comment-head">All Comments</h2>
+    
+</main>
+<%- include ("./ejs_partials/footer.ejs")%>
+</body>
+</html>

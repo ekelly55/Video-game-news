@@ -5,16 +5,57 @@
     <%- include ("./ejs_partials/nav.ejs")%>
     <main>
         <h1 class="game-name"><%=game.name%></h1>
-        <ul class="game-info">
-            <li><img src="<%=game.image%>"></li>
-            <li>User Rating: <%=game.rating%></li>
+        <img src="<%=game.image%>">
+        <h3>User Rating: <%let sum = 0%>
+            <% for(let i=0; i<comments.length; i++) {%>
+            <%let ratings = comments[i].rating%>
+            <%sum = sum + ratings%>
+        <%}%>
+            <%let avgUserRatings = sum/comments.length%>
+            <%=avgUserRatings.toFixed(1)%>
+    </h3>
+        <ul class="game-info"style="list-style: none">
             <li>Genre: <%=game.genre%></li>
             <li>Platforms: <%=game.platform%></li>
             <li>Price: $<%=game.price%></li>
             <li>Release Date:<%=game.release%></li>
-            <li href ="<%=game.trailer%>"> Trailer</li>
+            <li><a href ="<%=game.trailer%>"> Watch Trailer </a></li>
             
         </ul>
+        <section>
+            <h2>Create a new comment</h2>
+            <form method="POST" action="/comments/:id">
+    
+                <div>
+                    Rating: 
+                    <input name="rating" type="number" min="0" max="5"/>
+                </div>
+                <div>
+                    Comment: 
+                    <textarea name="comment">
+    
+                    </textarea>
+                <div>
+                    <input name="game" type="hidden" value="<%=game._id%>" />
+                </div>
+                </div>
+    
+                
+                <button type="submit">Add your comment</button>
+            </form>
+        </section>
+        <h2 class="comment-head">All Comments</h2>
+        <div class="comment-display">
+
+            <ul>
+                <% comments.forEach(comment => { %>
+                    <li>User Rating: <%= comment.rating%></li>
+                    <li>User Comment: <%=comment.comment%></li> 
+                <% }) %> 
+            </ul>
+        </div>
+        
+
     </main>
     <%- include ("./ejs_partials/footer.ejs")%>
 </body>

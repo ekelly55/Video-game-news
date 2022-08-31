@@ -1,5 +1,6 @@
 require("../config/db.connections");
 
 module.exports = {
-    Games: require('./Video_Games')
+    Games: require('./Video_Games'),
+    Comment: require('./Comment')
 }
