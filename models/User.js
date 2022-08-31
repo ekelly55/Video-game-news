@@ -21,6 +21,13 @@ const userSchema = new mongoose.Schema(
         avatar: {
             type: String,
             default: "https://i.imgur.com/VfBLBKRs.png"
-        }
+        },
+    },
+    {
+        timestamps: true,
     }
-)
+);
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
