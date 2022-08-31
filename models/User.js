@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             default: "https://i.imgur.com/VfBLBKRs.png"
         },
-        comment: {type: mongoose.Types.ObjectId, ref: "Comment"},
+        
     },
     {
         timestamps: true,
