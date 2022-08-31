@@ -37,5 +37,16 @@ router.get("/:id/", async (req, res, next) => {
     }
 });
 
+router.delete("/:id", async (req, res, next) => {
+    try{
+        const deletedComment = await db.Comment.findByIdAndDelete(req.params.id)
+        console.log(deletedComment)
+        res.redirect(`/games/${deletedComment.game._id}`)
+    } catch (err) {
+        console.log(err)
+        next()
+    }
+});
+
 
 module.exports = router
