@@ -6,7 +6,7 @@
     <%- include ("./ejs_partials/nav.ejs")%>
         <section class="upcoming">
             <h2> Upcoming </h2>
-            <h3> <%=games[0].name%> </h3>
+            <h3><a href="/games/<%=games[0]._id%>"> <%=games[0].name%></a></h3>
             <div class="upcoming-game">
                 <img src="<%= games[0].image%>">
             </div>

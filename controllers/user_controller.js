@@ -73,6 +73,18 @@ router.post('/register', async (req,res,next) =>{
     }
 })
 
+//Logout route
+router.get('/logout', async (req, res) =>{
+    try{
+        await req.session.destroy();
+        return res. redirect ('/login')
+
+    } catch (err){
+        console.log(err)
+        return res.send (err)
+    }
+})
+
 
 
 
