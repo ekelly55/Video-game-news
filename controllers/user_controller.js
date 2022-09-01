@@ -22,7 +22,7 @@ router.get('/register', (req,res) =>{
 
 //Create login route
 router.post('/login', async (req,res,next) =>{
-    let username 
+    
     try{
         let userData = req.body
         console.log(userData)
