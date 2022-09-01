@@ -9,7 +9,7 @@ const gamesSchema = new mongoose.Schema(
         price: {type: Number},
         trailer: {type: String},
         platform: {type: String},
-        rating: {type: String},
+        rating: {type: String, default: 0, min: 0, max: 5},
         comments: {type: mongoose.Types.ObjectId, ref: "Comment"},
     },
 );
