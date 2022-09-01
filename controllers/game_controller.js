@@ -39,11 +39,14 @@ router.get('/', async (req, res) => {
 
     try {
         const allPosts = await db.Games.find()
-        username = req.session.currentUser.username
+        /*username = req.session.currentUser.username
         console.log(username)
-        const context = {username: username, games: allPosts };
+        */
+        const context = {/*username: username,*/ games: allPosts };
         // console.log(allPosts)
         //res.send(allPosts)
+        console.log(req.session)
+
         res.render('games_index.ejs', context)
     } catch(err) {
         console.log(err)
@@ -62,8 +65,6 @@ router.get('/:id', async (req,res, next) =>{
     try{
         const foundGame = await db.Games.findById(req.params.id)
         const gameComments = await db.Comment.find({game: foundGame._id})
-        username = req.session.currentUser.username
-        console.log(username)
         const context = {game: foundGame, id: foundGame._id, comments: gameComments}
         res.render('games_show.ejs', context)
        
