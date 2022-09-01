@@ -22,6 +22,9 @@
         <% if (typeof routes !== 'undefined') { %> <% routes.forEach((route) => { %>
         <a class="navbar-item" href="<%= route.href %>"> <%= route.title %> </a>
         <% }) %> <% } %>
-      </div>
+    </div>
+    <div>
+        <p>Welcome <%=username%></p>
+    </div>
 </hr>
 </nav>
