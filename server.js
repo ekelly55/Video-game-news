@@ -6,6 +6,7 @@ require('./config/db.connections')
 const gamesController = require('./controllers/game_controller')
 const commentsController = require("./controllers/comment_controller")
 const userController = require('./controllers/user_controller')
+const navLinks = require("./navLinks")
 
 //app configuration
 const app = express()
@@ -15,6 +16,8 @@ app.set('view engine', 'ejs')
 
 //Middleware for each request
 app.use(express.static('public'))
+app.use(navLinks)
+
 
 app.use(
     session({
@@ -30,6 +33,12 @@ app.use(
         },
     })
     );
+
+/* SECTION Middleware */
+app.use(function (req, res, next) {
+    res.locals.user = req.session.currentUser;
+    next();
+  });
     
     
 app.use('/games', gamesController)

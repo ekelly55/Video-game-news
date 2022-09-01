@@ -14,6 +14,14 @@
     
         <link rel="stylesheet" href="styles/nav.css">
     </div>
-    <div><p>Welcome back, <%=username%>.</p></div>
+    <div class="navbar-menu navbar-end">
+        <% if (typeof user !== 'undefined') { %>
+        <p class="navbar-item"><%= user.username %></p>
+        <% } %>
+        <!-- routes -->
+        <% if (typeof routes !== 'undefined') { %> <% routes.forEach((route) => { %>
+        <a class="navbar-item" href="<%= route.href %>"> <%= route.title %> </a>
+        <% }) %> <% } %>
+      </div>
 </hr>
 </nav>
