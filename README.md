@@ -6,7 +6,8 @@
 How many times have you searched Google looking for the new best games that are on the market? If this is you or someone you know, then you have came to the right place. Noob Insider is the app for all gamers to see upcoming games, new games and articles from our authors regarding improvements, updates and bugs concerning your favorite games. Also, our app is user focused, so make sure to create a account upon arrival. Once you have your own account feel free to rate and comment on each game. Never heard of a game on our website? No problem, watch the trailer to see if this is a game you would like to check out for yourself. 
 
 ##**Noob Insider Pictures**
-https://www.figma.com/file/eer7nRVZIx2QWc0AE5yYQ6/Diagram---Homepage-Draft?node-id=101%3A2
+<img width="1305" alt="Screen Shot 2022-09-01 at 2 41 38 PM" src="https://user-images.githubusercontent.com/109078858/187989538-07930f56-e806-4628-a2cf-f642782432ef.png">
+
 
 This first picture depicts our concept for our home page. Our homepage consists of our upcoming game, our section containing our featured games, as well as where you can navigate to our other pages and login/register your account.
 
