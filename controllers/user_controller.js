@@ -22,6 +22,7 @@ router.get('/register', (req,res) =>{
 
 //Create login route
 router.post('/login', async (req,res,next) =>{
+    
     try{
         let userData = req.body
         console.log(userData)
@@ -39,7 +40,7 @@ router.post('/login', async (req,res,next) =>{
                 id: foundUser._id,
                 username: foundUser.username,
             }
-            return res.redirect ('/games')
+            return res.redirect('/games/')
         }
     }catch (err) {
         console.log(err);
@@ -77,7 +78,7 @@ router.post('/register', async (req,res,next) =>{
 router.get('/logout', async (req, res) =>{
     try{
         await req.session.destroy();
-        return res. redirect ('/login')
+        return res.redirect ('/login')
 
     } catch (err){
         console.log(err)
