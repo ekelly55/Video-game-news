@@ -2,29 +2,16 @@
 <html lang="en">
   <%- include ("./ejs_partials/head.ejs")%>
   <body>
+    <link rel="stylesheet" href="styles/login.css">
     <%- include ("./ejs_partials/nav.ejs")%>
-    <section>
-      <div>
-        <h1>Login</h1>
-      </div>
-    </section>
-
-    <main>
-      <div>
+      <div class= "login">
+        <h1 class = "h1Longin">LogIn</h1>
         <form method="POST" action="/login">
-          <div>
-            <label for="name">UserName</label>
-            <input name="username"type="text" placeholder="UserName"/>
-          </div>
-
-          <div>
-            <label for="password">Password</label>
-            <input name="password"type="password" placeholder="Password"/>
-          </div>
-
-          <button type="submit">Login</button>
+           <p><input name="username"type="text" placeholder="UserName"/></p>
+           <p><input name="password"type="password" placeholder="Password"/></p>
+          <button class="submit" type="submit">LogIn</button>
         </form>
       </div>
-    </main>
   </body>
+  <%- include ("./ejs_partials/footer.ejs")%>
 </html>

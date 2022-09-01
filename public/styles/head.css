@@ -1,5 +1,10 @@
-/* img {
+img {
     display: block;
     margin-left: auto;
-    margin-right: auto 
-} */
+    margin-right: auto;
+}
+.noob {
+    text-align: center;
+    border-bottom: double;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+}
