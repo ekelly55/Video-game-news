@@ -40,10 +40,6 @@ router.post('/login', async (req,res,next) =>{
                 id: foundUser._id,
                 username: foundUser.username,
             }
-            const allPosts = await db.Games.find()
-            username = req.session.currentUser.username
-            console.log(username)
-            context = {username: username, games: allPosts}
             return res.redirect('/games/')
         }
     }catch (err) {
