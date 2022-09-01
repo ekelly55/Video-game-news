@@ -1,0 +1,19 @@
+.h1Login {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: double;
+}
+.login {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 20px 20px 30px;
+    width: 310px;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+::-webkit-input-placeholder {
+    color: #ccc;
+    font-size: 15px;
+}
