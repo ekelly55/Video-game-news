@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include ("./ejs_partials/head.ejs")%>
-    <scripts src="."></scripts>
 <body>
     <main>
         <h1 class="game-name"><%=game.name%></h1>
@@ -13,9 +12,10 @@
         <%}%>
         <%if(comments.length !== 0) {%>
         <%let avgUserRatings = sum/comments.length%>
-        <%=avgUserRatings.toFixed(1)%>
+        <%let stars = "⭐"%>
+        <%=stars.repeat(avgUserRatings.toFixed(1))%>
         <%} else {%>
-        n/a
+        n/a 
         <%}%>    
     </h3>
         <ul class="game-info"style="list-style: none">
