@@ -1,0 +1,9 @@
+.game {
+ display: flex;
+}
+#info {
+  flex-direction: column;
+}
+.comment-display {
+    flex-direction: row;
+}
