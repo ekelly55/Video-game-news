@@ -1,9 +1,3 @@
-.h1Register {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: double;
-}
 .register {
     position: relative;
     margin-top: 200px;
@@ -13,7 +7,12 @@
     border: 1px solid grey;
     text-align: center;
 }
-
+.h1Register {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: double;
+}
 ::-webkit-input-placeholder {
     color: #ccc;
     font-size: 15px;
