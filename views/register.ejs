@@ -2,35 +2,26 @@
 <html lang="en">
   <%- include ("./ejs_partials/head.ejs")%>
   <body>
-    <%- include ("./ejs_partials/nav.ejs")%>
-      <div>
-        <h1>Register</h1>
-      </div>
+    <link rel="stylesheet" href="styles/register.css">
+
     <main>
-      <div>
+      <div class="register">
+        <h1 class="h1Register">Register</h1>
         <form method="POST" action="/register">
-        <div>
-          <label for="avatar">Avatar</label>
-          <input name="avatar"type="text" placeholder="Avatar"/>
-        </div>
-        
-          <div>
-            <label for="name">UserName</label>
-            <input name="username"type="text" placeholder="UserName"/>
-          </div>
+          <p><label for="avatar">Avatar</label>
+          <input name="avatar"type="text" placeholder="Avatar"/></p>
 
-          <div>
-            <label for="password">Password</label>
-            <input name="password"type="text" placeholder="Password"/>
-          </div>
-
-          <div>
-            <label for="email">Email</label>
-            <input name="email"type="text" placeholder="Email"/>
-          </div>
+            <p><label for="name">UserName</label>
+            <input name="username"type="text" placeholder="UserName"/></p>
+  
+            <p><label for="password">Password</label>
+            <input name="password"type="text" placeholder="Password"/></p>
+ 
+            <p><label for="email">Email</label>
+            <input name="email"type="text" placeholder="Email"/></p>
+       
           <button type="submit">Register</button>
         </form>
-      </div>
     </main>
   </body>
   <%- include ("./ejs_partials/footer.ejs")%>
