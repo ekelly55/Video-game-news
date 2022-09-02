@@ -59,7 +59,7 @@
                     <input name="game" type="hidden" value="<%=game._id%>" />
                 </div>
                 <div>
-                    <input name="user" type="hidden" value="<%=res.locals.currentUser.id%>" />
+                    <input name="user" type="hidden" value="<%=currentUser.id%>" />
                 </div>
     
                 
@@ -71,7 +71,9 @@
 
             <ul>
                 <% comments.forEach(comment => { %>
-                    <li class="user"><%=comment.user%></li>
+                    <%//if(typeof username !== "undefined") {%>
+                    <li class="user"><%=comment.user.user%></li>
+                    <%console.log(comment.user)%>
                     <li>User Rating: <%= comment.rating%></li>
                     <li>User Comment: <%=comment.comment%></li> 
                     <li><form action="/comments/<%=comment._id%>?_method=DELETE" method="POST">
