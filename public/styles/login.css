@@ -1,0 +1,19 @@
+.login {
+    position: relative;
+    margin-top: 200px;
+    margin-left: 800px;
+    padding: 20px 20px 20px 30px;
+    width: 310px;
+    border: 1px solid grey;
+    text-align: center;
+}
+.h1Login {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: double;
+}
+::-webkit-input-placeholder {
+    color: #ccc;
+    font-size: 15px;
+}

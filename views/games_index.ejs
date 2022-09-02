@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include ("./ejs_partials/head.ejs")%>
+    <link rel="stylesheet" href="styles/index.css">
 <body>
     <main>
-    <%- include ("./ejs_partials/nav.ejs")%>
         <section class="upcoming">
             <h2> Upcoming </h2>
-            <h3> <%=games[0].name%> </h3>
+            <h3> <%=games[0].name%></h3>
             <div class="upcoming-game">
-                <img src="<%= games[0].image%>">
+                <a href="/games/<%=games[0]._id%>"><img src="<%= games[0].image%>"></a>
             </div>
             <ul style="list-style: none">
                 <li> <%=games[0].release%></li>
@@ -23,8 +23,8 @@
                 <% for(let i = 1; i<games.length; i++) { %>
                     <% const thisGame = games[i] %>
                     <div>
-                        <img src="<%=thisGame.image%>">
-                        <li><a href="/games/<%=thisGame._id%>"> <%=thisGame.name%></a></li>
+                        <a href="/games/<%=thisGame._id%>"> <img src="<%=thisGame.image%>"></a>
+                        <li><%=thisGame.name%></li>
                         <li><%=thisGame.rating%></li>
                     </div>
                 <%}%>
@@ -37,7 +37,6 @@
             </form>
         </section>
         <%- include ("./ejs_partials/footer.ejs")%>
-        <link rel="stylesheet" href="styles/index.css">
     </main>
 </body>
 </html>

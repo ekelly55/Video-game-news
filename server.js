@@ -7,6 +7,7 @@ const gamesController = require('./controllers/game_controller')
 const commentsController = require("./controllers/comment_controller")
 const userController = require('./controllers/user_controller')
 
+
 //app configuration
 const app = express()
 const PORT = 4000
@@ -15,6 +16,8 @@ app.set('view engine', 'ejs')
 
 //Middleware for each request
 app.use(express.static('public'))
+
+
 
 app.use(
     session({
@@ -30,6 +33,8 @@ app.use(
         },
     })
     );
+
+
     
     
 app.use('/games', gamesController)
