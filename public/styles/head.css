@@ -1,10 +1,36 @@
-img {
-    display: block;
+#header {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    font-size: 50px;
+}
+/* img {
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
 }
-.noob {
+h1 {
     text-align: center;
     border-bottom: double;
     font-family: 'Alumni Sans Pinstripe', sans-serif;
+} */
+/* .topnav {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 20px;
+    margin-top: 20px;
+} */
+#leftBar {
+    display: inline-flex;
+    float: left;
+    font-size: 25px;
+    gap: 20px;
+}
+#rightBar {
+    display: inline-flex;
+    float: right;
+    font-size: 25px;
+    gap: 20px;
 }
