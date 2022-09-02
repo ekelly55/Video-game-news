@@ -62,7 +62,7 @@ Finally, we used express-session and connect-mongo to create sessions for our us
 
 will add link here
 
-## ** Next Steps**
+## **Next Steps**
 
 What will be our next steps in this project?
 
