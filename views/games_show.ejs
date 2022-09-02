@@ -58,6 +58,8 @@
                 <div>
                     <input name="game" type="hidden" value="<%=game._id%>" />
                 </div>
+                <div>
+                    <input name="user" type="hidden" value="<%=res.locals.currentUser.id%>" />
                 </div>
     
                 
@@ -69,11 +71,12 @@
 
             <ul>
                 <% comments.forEach(comment => { %>
+                    <li class="user"><%=comment.user%></li>
                     <li>User Rating: <%= comment.rating%></li>
                     <li>User Comment: <%=comment.comment%></li> 
                     <li><form action="/comments/<%=comment._id%>?_method=DELETE" method="POST">
                         <input class="delete-button" type="submit" value="Delete Comment"/>
-                    </form></li>
+                        </form></li>
                 <% }) %> 
             </ul>
         </div>
