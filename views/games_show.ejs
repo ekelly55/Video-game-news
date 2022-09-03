@@ -26,6 +26,8 @@
             <li><a href ="<%=game.trailer%>"> Watch Trailer </a></li>
             
         </ul>
+        <%if(typeof currentUser !== "undefined") {%>
+           <% if(currentUser.id === "6310bf2729a492b5fa71190b") {%>
         <section class="edit-delete">
             <form action="/games/<%=game._id%>/edit" method="GET">
                 <input class="edit-button" type="submit" value="Edit Game"/>
@@ -34,6 +36,8 @@
                 <input class="delete-button" type="submit" value="Delete Game"/>
             </form>
         </section>
+            <%}%>
+        <%}%>
         <%if(typeof currentUser !== "undefined") {%>
             
             <section>
@@ -43,6 +47,7 @@
                     <div>
                         <label for="rating">Rating: </label>
                         <select name="rating" id="rating">
+                            <option value= 0> </option>
                             <option value=1>&#9734</option>
                             <option value=2>&#9734 &#9734</option>
                             <option value=3>&#9734 &#9734 &#9734</option>
