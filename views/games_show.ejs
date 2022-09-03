@@ -50,34 +50,33 @@
                             <option value=5>&#9734 &#9734 &#9734 &#9734 &#9734</option>
                             
                         </select>
-                        <%}%>
                         
                     </div>
-                <div>
-                    Comment: 
-                    <textarea name="comment">
-    
-                    </textarea>
-                <div>
-                    <input name="game" type="hidden" value="<%=game._id%>" />
-                </div>
-                <div>
-                    <input name="user" type="hidden" value="<%=currentUser.id%>" />
-                </div>
-    
-                
-                <button type="submit">Add your comment</button>
-            </form>
-        </section>
+                    <div>
+                        Comment: 
+                        <textarea name="comment">
+                            
+                        </textarea>
+                        <div>
+                            <input name="game" type="hidden" value="<%=game._id%>" />
+                        </div>
+                        <div>
+                            <input name="user" type="hidden" value="<%=currentUser.id%>" />
+                        </div>
+                        
+                        
+                        <button type="submit">Add your comment</button>
+                    </form>
+                </section>
+                <%}%>
         <h2 class="comment-head">All Comments</h2>
         <div class="comment-display">
 
             <ul>
                 <% comments.forEach(comment => { %>
-                    <%//if(typeof user !== "undefined") {%>
+                    
                     <li class="user"><%=comment.user.username%></li>
-                    <%//}%>
-                    <%//console.log()%>
+                    
                     <li>User Rating: <%= comment.rating%></li>
                     <li>User Comment: <%=comment.comment%></li> 
                     <li><form action="/comments/<%=comment._id%>?_method=DELETE" method="POST">
