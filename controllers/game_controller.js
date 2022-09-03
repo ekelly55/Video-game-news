@@ -64,9 +64,8 @@ router.get('/new', (req,res) =>{
 router.get('/:id', async (req,res, next) =>{
     try{
         const foundGame = await db.Games.findById(req.params.id)
-        const gameComments = await db.Comment.find({game: foundGame._id}).
-        populate("user").exec()
-        console.log(res.locals.currentUser)
+        const gameComments = await db.Comment.find({game: foundGame._id}).populate("user").exec()
+        //console.log(res.locals.currentUser)
         const context = {game: foundGame, id: foundGame._id, comments: gameComments}
         //console.log(gameComments.user)
         //console.log(req.session.currentUser)

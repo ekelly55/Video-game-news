@@ -72,8 +72,8 @@
             <ul>
                 <% comments.forEach(comment => { %>
                     <%//if(typeof username !== "undefined") {%>
-                    <li class="user"><%=comment.user.user%></li>
-                    <%console.log(comment.user)%>
+                    <li class="user"><%=comment.user.username%></li>
+                    <%console.log(comment.user.username)%>
                     <li>User Rating: <%= comment.rating%></li>
                     <li>User Comment: <%=comment.comment%></li> 
                     <li><form action="/comments/<%=comment._id%>?_method=DELETE" method="POST">
