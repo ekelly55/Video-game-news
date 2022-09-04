@@ -30,8 +30,10 @@
             <li>Price: $<%=game.price%></li>
             <li>Release Date:<%=game.release%></li>
             <li><a href ="<%=game.trailer%>"> Watch Trailer </a></li>
+
             
         </ul>
+        </div>
         <%if(typeof currentUser !== "undefined") {%>
            <% if(currentUser.id === "6310bf2729a492b5fa71190b") {%>
         <section class="edit-delete">
@@ -77,13 +79,14 @@
                         
                         
                         <button type="submit">Add your comment</button>
+                     </div>
                     </form>
                 </section>
                 <%}%>
-        <h2 class="comment-head">All Comments</h2>
-        <div class="comment-display">
+                <div class="comment-display">
+            <h2 class="comment-head">All Comments</h2>
 
-            <ul>
+            <ul class="comment-section"style="list-style:none"
                 <% comments.forEach(comment => { %>
                     
                     <li class="user"><%=comment.user.username%></li> 
@@ -101,7 +104,7 @@
                     </ul>
         </div>
         
-        </div>
+        
     </div>
     </main>
     <%- include ("./ejs_partials/footer.ejs")%>
