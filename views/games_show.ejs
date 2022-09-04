@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include ("./ejs_partials/head.ejs")%>
+    <scripts src="."></scripts>
+    <link rel="stylesheet" href="/styles/show.css">
+
 <body>
    
     <main>
+    <div class = "game">
+        <div id = "info">
         <h1 class="game-name"><%=game.name%></h1>
         <img src="<%=game.image%>">
         <h3>User Rating: <%let sum = 0%>
@@ -18,7 +23,7 @@
         <%} else {%>
         n/a 
         <%}%>    
-    </h3>
+        </h3>
         <ul class="game-info"style="list-style: none">
             <li>Genre: <%=game.genre%></li>
             <li>Platforms: <%=game.platform%></li>
@@ -93,11 +98,12 @@
                         <%}%>
                     <%}%>
                 <%})%>
-            </ul>
+
         </div>
         
+        </div>
+    </div>
     </main>
     <%- include ("./ejs_partials/footer.ejs")%>
-    
 </body>
 </html>
