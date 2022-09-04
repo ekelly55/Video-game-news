@@ -47,7 +47,7 @@ router.get('/', async (req, res) => {
         //res.send(allPosts)
         //console.log(req.session)
 
-        res.render('bootstrapindex.ejs', context)
+        res.render('games_index.ejs', context)
     } catch(err) {
         console.log(err)
         
