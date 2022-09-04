@@ -54,6 +54,7 @@ Finally, we used express-session and connect-mongo to create sessions for our us
 ## **Link to Noob Insider**
 
 **GitHub source code:** https://github.com/tjphillips08/Video-game-news
+
 **Heroku App:** https://obscure-fortress-74365.herokuapp.com/games
 
 
