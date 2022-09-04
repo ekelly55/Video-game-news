@@ -28,14 +28,9 @@ Placeholder for our homepage
 Description of our homepage
 
 
-Placeholder for our show page
-Description for our show page
+![Screen Shot 2022-09-04 at 2 08 52 PM](https://user-images.githubusercontent.com/109078858/188329731-84bc9bc3-334c-4156-90d6-ff002b3bd931.png)
 
-Placeholder for our news page
-Description for our news page
-
-Placeholder for our register page
-Description for our register page
+When you come to our website and want to get more information about the game, here is the screen you will get. On our game (show) page you will get information about the genre of the game, price, the platforms the game is available on and a trailer to check out game-play. Also, if you are a signed in user you can add ratings and a comment for the game. You can also see all comments made my other users as well!
 
 
 ## **Technologies Used**
