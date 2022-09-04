@@ -1,9 +1,10 @@
 .game {
- display: flex;
+ display: grid;
 }
 #info {
-  flex-direction: column;
+
 }
 .comment-display {
-    flex-direction: row;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
 }
