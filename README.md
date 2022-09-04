@@ -54,10 +54,12 @@ Finally, we used express-session and connect-mongo to create sessions for our us
 ## **Link to Noob Insider**
 
 **GitHub source code:** https://github.com/tjphillips08/Video-game-news
+**Heroku App:** https://obscure-fortress-74365.herokuapp.com/games
+
 
 ## **Next Steps**
 
-What will be our next steps in this project?
+First of all, this project was very rewarding for all of us. We were able to push ourselves and learn more than we thought possible. There are definitely some things we would like to continue working on for this project. First, we want to add more CSS styling and improve the overall look of the website. We want to incorporate Bootstrap and add navigation bars to our pages. Also, right now on our website the Admin (determined by our unique Id's) has the access to delete users comments. However, we would like to add where the current user can delete their own comment if there are errors or they would rather just delete their comment. Finally, we want to use API's for our data in the future. We created our own database for this project, but would be very beneficial in our website expansion to include a API that includes the game data we are using, so we can populate games on a larger scale. 
 
 
 
