@@ -24,18 +24,11 @@ Here is our latest news page. This page is articles created by our authors that 
 ![Screen Shot 2022-09-02 at 9 40 27 AM](https://user-images.githubusercontent.com/109078858/188175088-7364a3ad-6acb-48ce-b25a-c9d320328cbe.png)
 
 When you first come to our website you should register for a account. This is our register page where you can create a account and have access to create comments and view all the content on our website.
-Placeholder for our homepage
-Description of our homepage
 
 
-Placeholder for our show page
-Description for our show page
+![Screen Shot 2022-09-04 at 2 08 52 PM](https://user-images.githubusercontent.com/109078858/188329731-84bc9bc3-334c-4156-90d6-ff002b3bd931.png)
 
-Placeholder for our news page
-Description for our news page
-
-Placeholder for our register page
-Description for our register page
+When you come to our website and want to get more information about the game, here is the screen you will get. On our game (show) page you will get information about the genre of the game, price, the platforms the game is available on and a trailer to check out game-play. Also, if you are a signed in user you can add ratings and a comment for the game. You can also see all comments made my other users as well!
 
 
 ## **Technologies Used**
@@ -60,7 +53,7 @@ Finally, we used express-session and connect-mongo to create sessions for our us
 
 ## **Link to Noob Insider**
 
-will add link here
+**GitHub source code:** https://github.com/tjphillips08/Video-game-news
 
 ## **Next Steps**
 

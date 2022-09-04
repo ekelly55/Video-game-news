@@ -2,7 +2,8 @@
 <html lang="en">
     <%- include ("./ejs_partials/head.ejs")%>
 <body>
-    <%- include ("./ejs_partials/nav.ejs")%>
+  <div>
+
     <main>
         <h1>Edit Game</h1>
         <form action="/games/<%= game._id%>?_method=PUT" method="POST">
