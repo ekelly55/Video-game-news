@@ -13,9 +13,12 @@ const db = require('../models')
 
 //Routes will be here
 
+// privacypolicy
+router.get('/privacy_policy', (req, res) => {
+    res.render("privacy_policy")
+});
 
 //go to news route
-
 router.get("/news", (req, res) => {
     res.render("thenews.ejs")
 });
