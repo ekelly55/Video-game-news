@@ -53,7 +53,7 @@ Finally, we used express-session and connect-mongo to create sessions for our us
 
 ## **Link to Noob Insider**
 
-will add link here
+**GitHub source code:** https://github.com/tjphillips08/Video-game-news
 
 ## **Next Steps**
 
