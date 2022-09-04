@@ -12,3 +12,7 @@
 .comment-display {
     flex-direction: row;
 }
+
+.comment-section{
+    border: solid black;
+}
