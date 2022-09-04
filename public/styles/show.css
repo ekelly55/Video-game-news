@@ -2,7 +2,13 @@
  display: grid;
 }
 #info {
+ display: flex;
+ margin: 80px 30px 0 30px;
+ gap: 420px;
 
+}
+#info {
+  flex-direction: column;
 }
 .comment-display {
     grid-template-columns: repeat(2, 1fr);
