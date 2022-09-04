@@ -40,7 +40,7 @@ router.post('/login', async (req,res,next) =>{
                 id: foundUser._id,
                 username: foundUser.username,
             }
-            return res.redirect('/games/')
+            return res.redirect('/games')
         }
     }catch (err) {
         console.log(err);
