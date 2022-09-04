@@ -18,6 +18,10 @@ router.get('/privacy_policy', (req, res) => {
     res.render("privacy_policy")
 });
 
+// aboutus
+router.get('/about_us', (req, res) => {
+    res.render('aboutus.ejs')
+})
 //go to news route
 router.get("/news", (req, res) => {
     res.render("thenews.ejs")
