@@ -1,0 +1,14 @@
+.game {
+ display: flex;
+ margin: 80px 30px 0 30px;
+ gap: 420px;
+ 
+ 
+}
+#info {
+  flex-direction: column;
+  
+}
+.comment-display {
+    flex-direction: row;
+}
