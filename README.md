@@ -24,8 +24,6 @@ Here is our latest news page. This page is articles created by our authors that 
 ![Screen Shot 2022-09-02 at 9 40 27 AM](https://user-images.githubusercontent.com/109078858/188175088-7364a3ad-6acb-48ce-b25a-c9d320328cbe.png)
 
 When you first come to our website you should register for a account. This is our register page where you can create a account and have access to create comments and view all the content on our website.
-Placeholder for our homepage
-Description of our homepage
 
 
 ![Screen Shot 2022-09-04 at 2 08 52 PM](https://user-images.githubusercontent.com/109078858/188329731-84bc9bc3-334c-4156-90d6-ff002b3bd931.png)
