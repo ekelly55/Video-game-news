@@ -21,8 +21,12 @@
                 <a href="/register">Register</a>
                 <a href="/logout">Logout</a>
         </div>
-        </div>
-</nav>
+    </nav>
+    <div class="username-display">
+        <%if(currentUser !== undefined) {%>
+            <p>Welcome, <%=currentUser.username%></p>
+        <%}%>
+    </div>
 <link rel="stylesheet" href="/styles/head.css">
  <link rel="stylesheet" href="/styles/main.css">
 
