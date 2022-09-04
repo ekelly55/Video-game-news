@@ -35,7 +35,7 @@
         </ul>
         </div>
         <%if(typeof currentUser !== "undefined") {%>
-           <% if(currentUser.id === "6310bf2729a492b5fa71190b") {%>
+           <% if(currentUser.id === "6310bf2729a492b5fa71190b" ) {%>
         <section class="edit-delete">
             <form action="/games/<%=game._id%>/edit" method="GET">
                 <input class="edit-button" type="submit" value="Edit Game"/>
@@ -86,7 +86,7 @@
                 <div class="comment-display">
             <h2 class="comment-head">All Comments</h2>
 
-            <ul class="comment-section"style="list-style:none"
+            <ul class="comment-section"style="list-style:none">
                 <% comments.forEach(comment => { %>
                     
                     <li class="user"><%=comment.user.username%></li> 
