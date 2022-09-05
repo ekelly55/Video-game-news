@@ -13,6 +13,11 @@
     grid-row:  1 / span 3;
     grid-column: 1 / span 3;
 }
+
+.logo {
+    border: 10px solid violet;
+}
+
 /* img {
     display: inline-block;
     margin-left: auto;
@@ -39,7 +44,12 @@ nav {
     grid-template-columns: 3;
     background-color: black;
     color: white;
-    padding-top: 25px;
+    padding: 30px 15px 0px 15px;
+
+}
+
+nav:hover {
+    background-color: violet;
 }
 
 a:link {
