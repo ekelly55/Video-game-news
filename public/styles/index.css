@@ -1,30 +1,4 @@
 
-/* .upcoming-heading {
-    display: flex;
-    justify-content: center;    
-}
-.upcoming-game {
-    display: flex;
-    justify-content: center;
-}
-.upcoming-name {
-    display: flex;
-    justify-content: center;
-}
-.one {
-    display: flex;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-} */
-/* .one { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr);  
-    grid-template-rows: repeat(3, 200px); 
-    background-color: beige; 
-    gap: 10px 
-  } */
-
   .upcoming {
     display: flex;
     align-items: center;
@@ -34,7 +8,9 @@
     margin-left: 200px;
     margin-right: 200px;
     margin-top: 50px;
+    min-width: 320px;
 }
+
 .fGame {
    text-align: center;
   }
