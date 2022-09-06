@@ -32,9 +32,12 @@
             </div>
         </section>
         <section class="add-new">
+            <%if(typeof currentUser !== "undefined") {%>
+                <% if(currentUser.id === "6310bf2729a492b5fa71190b" || "630fb44f53c2bdfa165510de" || "630fc31b3ff38f331aeaf567") {%>
             <form action="/games/new" method="GET">
                 <input class="new-button" type="submit" value="Add New Game"/>
             </form>
+            <%}%>
         </section>
         <%- include ("./ejs_partials/footer.ejs")%>
     </main>
