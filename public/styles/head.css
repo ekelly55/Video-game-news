@@ -97,3 +97,8 @@ a:link {
     grid-column: 3 / span 1;
     justify-content: right;
 }
+
+.welcome-empty {
+    opacity: 0;
+}
+

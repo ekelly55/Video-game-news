@@ -34,7 +34,7 @@
             
         </ul>
         <%if(typeof currentUser !== "undefined") {%>
-            <% if(currentUser.id === "6310bf2729a492b5fa71190b" || "630fb44f53c2bdfa165510de" || "630fc31b3ff38f331aeaf567") {%>
+            <% if(currentUser.id === "6310bf2729a492b5fa71190b") {%>
                 <section class="edit-delete">
                     <form action="/games/<%=game._id%>/edit" method="GET">
                         <input class="edit-button" type="submit" value="Edit Game"/>
@@ -106,7 +106,7 @@
         
         
     </div>
-    </main>
     <%- include ("./ejs_partials/footer.ejs")%>
+    </main>
 </body>
 </html>

@@ -24,6 +24,8 @@
         <div class="username-display">
             <%if(currentUser !== undefined) {%>
                 <p>Welcome, <%=currentUser.username%></p>
+                <%} else {%>
+                <p class="welcome-empty">Welcome</p>    
                 <%}%>
         </div>
     </nav>

@@ -9,3 +9,19 @@
    flex-wrap: wrap;
    text-align: center;
 }
+
+.footer-link:link {
+   text-decoration: none;
+   color: black
+ }
+ 
+ .footer-link:visited {
+   text-decoration: none;
+   color: black
+ }
+
+ .footer-link:hover {
+   text-decoration: none;
+   color: violet;
+   background-color: white;
+ }
