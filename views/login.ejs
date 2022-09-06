@@ -3,15 +3,16 @@
   <%- include ("./ejs_partials/head.ejs")%>
   <body>
     <link rel="stylesheet" href="styles/login.css">
-    
-      <div class= "login">
-        <h1 class = "h1Login">LogIn</h1>
-        <form method="POST" action="/login">
-           <p><input name="username"type="text" placeholder="UserName"/></p>
-           <p><input name="password"type="password" placeholder="Password"/></p>
-          <button class="submit" type="submit">LogIn</button>
-        </form>
-      </div>
+      <section class="login-container">
+        <div class= "login">
+          <h1 class = "h1Login">LogIn</h1>
+          <form class="login-form" method="POST" action="/login">
+            <p><input name="username"type="text" placeholder="UserName"/></p>
+            <p><input name="password"type="password" placeholder="Password"/></p>
+            <button class="submit" type="submit">LogIn</button>
+          </form>
+        </div>
+      </section>
   </body>
   <%- include ("./ejs_partials/footer.ejs")%>
 </html>

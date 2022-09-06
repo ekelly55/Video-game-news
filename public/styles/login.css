@@ -1,6 +1,11 @@
+.login-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
 .login {
-    position: relative;
-    margin-left: 800px;
     padding: 20px 20px 20px 30px;
     width: 310px;
     border: 1px solid grey;
