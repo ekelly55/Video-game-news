@@ -1,3 +1,5 @@
+
+
 .register {
     position: relative;
     margin-left: 800px;
@@ -14,7 +16,6 @@
     text-align: center;
     border-bottom: double;
 }
-
 
 ::-webkit-input-placeholder {
     color: #ccc;
