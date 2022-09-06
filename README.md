@@ -51,6 +51,13 @@ We used bcyrptjs to allow for us to be able to reference and match user informat
 Finally, we used express-session and connect-mongo to create sessions for our users. Express-session allowed us to create a time-frame that users would be active in our website before being automatically logged out. 
 
 
+## **Challenges**
+![Screen Shot 2022-09-05 at 7 19 06 PM](https://user-images.githubusercontent.com/109078858/188523018-370c14b2-d2eb-41ed-971e-bbd34846097e.png)
+
+This was a function that took us some time to figure out how to accomplish. We wanted to be able to take the ratings from all the users and have an average user rating display for each game. This was really rewarding when we were able to figure this function out. 
+
+
+
 ## **Link to Noob Insider**
 
 **GitHub source code:** https://github.com/tjphillips08/Video-game-news
