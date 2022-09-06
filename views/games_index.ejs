@@ -3,7 +3,6 @@
     <%- include ("./ejs_partials/head.ejs")%>
     <link rel="stylesheet" href="styles/index.css">
 <body>
- 
     <main>
         <section class="upcoming">
             <h2> Upcoming </h2>
@@ -16,10 +15,9 @@
                 <li> <a href="<%=games[0].trailer%>">Trailer</a></li>
             </ul>
         </section>
-
         <h2 class = "fGame">Featured Games</h2>
         <section class="lower-half">
-        <div class="games-index">
+            <div class="games-index">
                 <ul class= "one" style="list-style: none">
                 <% for(let i = 1; i<games.length; i++) { %>
                     <% const thisGame = games[i] %>
@@ -37,6 +35,7 @@
             </form>
         </section>
     </main>
-    <%- include ("./ejs_partials/footer.ejs")%>
+<%- include ("./ejs_partials/footer.ejs")%>
 </body>
+
 </html>

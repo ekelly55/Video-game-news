@@ -4,6 +4,7 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+
 #header {
     width: 100%;
     text-align: center;
@@ -14,27 +15,11 @@
     grid-column: 1 / span 3;
 }
 
+
 .logo {
     border: 10px solid violet;
 }
 
-/* img {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-}
-h1 {
-    text-align: center;
-    border-bottom: double;
-    font-family: 'Alumni Sans Pinstripe', sans-serif;
-} */
-/* .topnav {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 20px;
-    margin-top: 20px;
-} */
 
 nav {
     grid-row:  2 / span 1;
@@ -45,28 +30,30 @@ nav {
     background-color: black;
     color: white;
     padding: 30px 15px 0px 15px;
-
 }
+
 
 nav:hover {
     background-color: violet;
 }
 
+
 a:link {
     text-decoration: none;
     color: white
-  }
-  
-  a:visited {
+}
+
+
+a:visited {
     text-decoration: none;
     color: white
-  }
-  
-  a:hover {
+}
+
+
+a:hover {
     text-decoration: underline;
     color: black;
-    background-color: violet;
-  }
+}
 
 
 #leftBar {
@@ -77,8 +64,16 @@ a:link {
     font-family: 'Michroma', sans-serif;
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
-    
 }
+
+
+.search {
+    background-color: white;
+    border-color: white;
+    color: white
+}
+
+
 #rightBar {
     display: inline-flex;
     float: right;
@@ -88,8 +83,8 @@ a:link {
     grid-row: 1 / span 1;
     grid-column: 3 / span 1;
     justify-content: right;
-    
 }
+
 
 .username-display {
     display: inline-flex;
@@ -97,6 +92,7 @@ a:link {
     grid-column: 3 / span 1;
     justify-content: right;
 }
+
 
 .welcome-empty {
     opacity: 0;

@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include ("./ejs_partials/head.ejs")%>
-    <scripts src="."></scripts>
     <link rel="stylesheet" href="/styles/show.css">
 
 <body>
-   
     <main>
         <div class = "game">
             <div id = "info">
                 <h1 class="game-name"><%=game.name%></h1>
-                <img src="<%=game.image%>">
+                <img class="show-image" src="<%=game.image%>">
                 <h3>User Rating: <%let sum = 0%>
                 <% for(let i=0; i<comments.length; i++) {%>
                     <%let ratings = comments[i].rating%>

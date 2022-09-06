@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-    <%- include ("./ejs_partials/head.ejs")%>
-<body>
-  <div>
 
+<html lang="en">
+
+<%- include ("./ejs_partials/head.ejs")%>
+
+<body>
     <main>
-        <h1>Edit Game</h1>
-        <form action="/games/<%= game._id%>?_method=PUT" method="POST">
-            <div>
-                <label> Name:</label>
+      <h1>Edit Game</h1>
+      <form action="/games/<%= game._id%>?_method=PUT" method="POST">
+          <div>
+              <label> Name:</label>
               <input
-                class="input"
-                type="text"
-                name="name"
-                value="<%= game.name %>"
-               
-              />
-            </div>
+              class="input"
+              type="text"
+              name="name"
+              value="<%= game.name %>"
+            />
           </div>
-          
           <div>
             <label>Image:</label>
               <input
@@ -26,45 +24,34 @@
                 type="text"
                 name="image"
                 value="<%= game.image %>"
-                
               />
-            </div>
           </div>
-          
-          <div>
-              <div class="control">
-                <label>Release Date:</label>
-              <input
-                class="input"
-                type="text"
-                name="release"
-                value="<%= game.release %>"
-               
-              />
-            </div>
+          <div class="control">
+            <label>Release Date:</label>
+            <input
+              class="input"
+              type="text"
+              name="release"
+              value="<%= game.release %>"
+            />
           </div>
           <div>
             <label>Genre:</label>
-              <input
-                class="input"
-                type="text"
-                name="genre"
-                value="<%= game.genre %>"
-
-              />
-            </div>
+            <input
+              class="input"
+              type="text"
+              name="genre"
+              value="<%= game.genre %>"
+            />
           </div>
-          
-          <div>
-              <div class="control">
-                  <label>Price:</label>
-                  <input
-                class="input"
-                type="text"
-                name="price"
-                value="<%= game.price %>"
-              />
-            </div>
+          <div class="control">
+            <label>Price:</label>
+            <input
+              class="input"
+              type="text"
+              name="price"
+              value="<%= game.price %>"
+            />
           </div>
           <div>
             <label>Trailer:</label>
@@ -73,31 +60,23 @@
                 type="text"
                 name="trailer"
                 value="<%= game.trailer %>"
-
               />
-            </div>
           </div>
-          
+          <div class="control">
+            <label>Platform:</label>
+            <input
+              class="input"
+              type="text"
+              name="platform"
+              value="<%= game.platform %> "
+            />
+          </div>
           <div>
-              <div class="control">
-                <label>Platform:</label>
-              <input
-                class="input"
-                type="text"
-                name="platform"
-                value="<%= game.platform %> "
-                
-              />
-            </div>
+            <input type="submit" value="Edit Game">
           </div>
-              <div>
-           <input type="submit" value="Edit Game">
-              </div>
-          </div>
-          </form>
-        
+        </form>
     </main>
-    <%- include ("./ejs_partials/footer.ejs")%>
-
+  <%- include ("./ejs_partials/footer.ejs")%>
 </body>
+
 </html>

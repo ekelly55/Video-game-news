@@ -5,6 +5,15 @@ body {
 }
 
 
+input {
+    background-color: black;
+    border: 1px solid black;
+    color: violet;
+    border-radius: 5px;
+    font-family: 'Michroma', sans-serif;
+    margin: 15px 0 0 0;
+    padding: 5px;
+}
   
   
 

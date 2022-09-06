@@ -1,7 +1,4 @@
 .footer {
-   /* bottom: 0;
-   margin-left: 85px;
-   text-align: center; */
    display: flex;
    flex-direction: column;
    align-content: flex-end;
@@ -10,16 +7,19 @@
    text-align: center;
 }
 
+
 .footer-link:link {
    text-decoration: none;
    color: black
  }
  
+
  .footer-link:visited {
    text-decoration: none;
    color: black
  }
 
+ 
  .footer-link:hover {
    text-decoration: none;
    color: violet;

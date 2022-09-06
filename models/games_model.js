@@ -1,4 +1,5 @@
 const db = require('./index');
+
 const games = [
     {
         name: 'Super People',
@@ -8,8 +9,8 @@ const games = [
         price: '0',
         trailer: 'https://www.youtube.com/watch?v=xTZyuNOJV3s',
         platform: 'PC',
-        
     },
+
     {
         name: 'Call of Duty Warzone',
         image: 'https://i.imgur.com/fzmb1ZBm.jpg',
@@ -18,8 +19,8 @@ const games = [
         price: '60',
         trailer: 'https://www.youtube.com/watch?v=0E44DClsX5Q',
         platform: 'PC, PS, XBOX',
-        
     },
+
     {
         name: 'World of Warcraft',
         image: 'https://i.imgur.com/G8Q2ihQm.png',
@@ -28,8 +29,8 @@ const games = [
         price: '15',
         trailer: 'https://www.youtube.com/watch?v=vlVSJ0AvZe0',
         platform: 'PC',
-        
     },
+
     {
         name: 'Lost Ark',
         image: 'https://i.imgur.com/EzXMh18m.jpg',
@@ -38,8 +39,8 @@ const games = [
         price: '20',
         trailer: 'https://www.youtube.com/watch?v=riJ0UEsDmSQ',
         platform: 'PC',
-        
     },
+
     {
         name: 'Madden NFL 23',
         image: 'https://i.imgur.com/I8b6Cbym.jpg',
@@ -48,8 +49,8 @@ const games = [
         price: '60',
         trailer: 'https://www.youtube.com/watch?v=RT9OYOLHFcg',
         platform: 'PC, PS, XBOX',
-        
     },
+
     {
         name: 'FIFA 23',
         image: 'https://i.imgur.com/QrsLUd0m.jpg',
@@ -58,7 +59,6 @@ const games = [
         price: '60',
         trailer: 'https://www.youtube.com/watch?v=o3V-GvvzjE4',
         platform: 'PC, PS, XBOX',
-        
     },
 
 ];
@@ -73,6 +73,6 @@ async function reloadData() {
 	} catch (err) {
 		console.log(err);
 	}
-}
+};
 
 reloadData();

@@ -3,9 +3,13 @@ h1 {
     text-align: center;
     padding: 50px;
 }
+
+
 article {
     border: solid black;
 }
+
+
 .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
