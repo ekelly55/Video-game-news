@@ -57,6 +57,11 @@ Finally, we used express-session and connect-mongo to create sessions for our us
 This was a function that took us some time to figure out how to accomplish. We wanted to be able to take the ratings from all the users and have an average user rating display for each game. This was really rewarding when we were able to figure this function out. 
 
 
+![Screen Shot 2022-09-06 at 8 19 52 AM](https://user-images.githubusercontent.com/109078858/188645877-d915bb1e-02a8-4aa3-ac37-059f06c7a21e.png)
+
+Here are conditional statements that we added into our code regarding the use of editing and deleting content. We wanted it where only admin could edit or delete content on the game and not users visiting the site. This was a challenge that we were able to overcome. 
+
+
 
 ## **Link to Noob Insider**
 
