@@ -18,12 +18,12 @@
         </section>
 
         <h2 class = "fGame">Featured Games</h2>
-        <section>
+        <section class="lower-half">
         <div class="games-index">
                 <ul class= "one" style="list-style: none">
                 <% for(let i = 1; i<games.length; i++) { %>
                     <% const thisGame = games[i] %>
-                    <div>
+                    <div class="game-box">
                         <a href="/games/<%=thisGame._id%>"> <img src="<%=thisGame.image%>"></a>
                         <li><%=thisGame.name%></li>
                     </div>

@@ -8,7 +8,27 @@
     margin-left: 200px;
     margin-right: 200px;
     margin-top: 50px;
-    min-width: 320px;
+    min-width: 330px;
+}
+
+.lower-half {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-direction: wrap;
+    justify-content: space-evenly;
+    padding-left: ;
+}
+
+img: hover {
+    border: 5px solid violet;
+}
+
+@media screen and (max-width: 1000px) {
+    .lower-half {
+
+    }
+    
 }
 
 .fGame {
@@ -18,4 +38,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+}
+
+.game-box {
+    justify-content: center;
 }
