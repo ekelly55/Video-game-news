@@ -9,13 +9,20 @@
             <div id = "info">
                 <h1 class="game-name"><%=game.name%></h1>
                 <img class="show-image" src="<%=game.image%>">
-                <h3>User Rating: <%let sum = 0%>
+                <h3>User Rating: 
+                <%let sum = 0%>
+                <%let totalRatings=0%>
                 <% for(let i=0; i<comments.length; i++) {%>
                     <%let ratings = comments[i].rating%>
                     <%sum = sum + ratings%>
-                 <%}%>
+                    <%}%>
                 <%if(comments.length !== 0) {%>
-                   <%let avgUserRatings = sum/comments.length%>
+                    <% for(let i=0; i<comments.length; i++) {%>
+                        <%if(comments[i].rating) {%>
+                            <%totalRatings+=1%>
+                        <%}%>    
+                    <%}%>    
+                   <%let avgUserRatings = sum/totalRatings%>
                     <%let stars = "⭐"%>
                     <%=stars.repeat(avgUserRatings.toFixed(1))%>
                 <%} else {%>
