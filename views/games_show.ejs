@@ -37,7 +37,7 @@
                     <li><a href ="<%=game.trailer%>"> Watch Trailer </a></li>
                 </ul>
                 <%if(typeof currentUser !== "undefined") {%>
-                    <% if(currentUser.id === "6310bf2729a492b5fa71190b") {%>
+                    <% if(currentUser.id === "6373f943c0d65aafed339b74") {%>
                         <section class="edit-delete">
                             <form action="/games/<%=game._id%>/edit" method="GET">
                                 <input class="edit-button" type="submit" value="Edit Game"/>
@@ -90,7 +90,7 @@
                                 <li c><%=comment.comment%></li>
                             </div>
                     <%if(typeof currentUser !== "undefined") {%>
-                        <%if(currentUser.id === "6310bf2729a492b5fa71190b" || currentUser === comment.user) {%> 
+                        <%if(currentUser.id === "6373f943c0d65aafed339b74" || currentUser.id === comment.user.id) {%> 
                             <li><form action="/comments/<%=comment._id%>?_method=DELETE" method="POST">
                                     <input class="delete-button" type="submit" value="Delete Comment"/>
                                 </form></li>

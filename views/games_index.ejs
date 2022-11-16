@@ -29,11 +29,15 @@
                 </ul>
             </div>
         </section>
-        <section class="add-new">
-            <form action="/games/new" method="GET">
-                <input class="new-button" type="submit" value="Add New Game"/>
-            </form>
-        </section>
+        <%if(typeof currentUser !== "undefined") {%>
+            <% if(currentUser.id === "6373f943c0d65aafed339b74") {%>
+                <section class="add-new">
+                    <form action="/games/new" method="GET">
+                        <input class="new-button" type="submit" value="Add New Game"/>
+                    </form>
+                </section>
+            <%}%>
+        <%}%>
     </main>
 <%- include ("./ejs_partials/footer.ejs")%>
 </body>
