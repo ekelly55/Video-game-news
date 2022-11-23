@@ -10,25 +10,27 @@
             <div id = "info">
                 <h1 class="game-name"><%=game.name%></h1>
                 <img class="show-image" src="<%=game.image%>">
+                
+                <%let sum = null%>
+                <%let totalRatings=null%>
+                <%let avgUserRatings%>
+                <%let stars = "⭐"%>
                 <h3>User Rating: 
-                <%let sum = 0%>
-                <%let totalRatings=0%>
-                <% for(let i=0; i<comments.length; i++) {%>
-                    <%let ratings = comments[i].rating%>
-                    <%sum = sum + ratings%>
-                    <%}%>
-                <%if(comments.length !== 0) {%>
-                    <% for(let i=0; i<comments.length; i++) {%>
-                        <%if(comments[i].rating) {%>
+                    <%comments.map((comment, i)=>{%>
+                        <%if(comment.rating) {%>
+                            <%sum= sum+comment.rating%>
+                            <%console.log(sum)%>
                             <%totalRatings+=1%>
-                        <%}%>    
-                    <%}%>    
-                   <%let avgUserRatings = sum/totalRatings%>
-                    <%let stars = "⭐"%>
-                    <%=stars.repeat(avgUserRatings.toFixed(1))%>
-                <%} else {%>
-                    n/a 
-                <%}%>    
+                            <%console.log(totalRatings)%>
+                            <%}%> 
+                            <%avgUserRatings = sum/totalRatings%>
+                            <%console.log(avgUserRatings)%>
+                            <%})%>               
+                        <%if(avgUserRatings) {%>
+                                <%=stars.repeat(Math.round(avgUserRatings))%>
+                        <%} else {%>
+                            N/A
+                        <%}%>
                 </h3>
                 <ul class="game-info"style="list-style: none">
                     <li>Genre: <%=game.genre%></li>
@@ -85,7 +87,9 @@
                     <% comments.forEach(comment => { %>
                         <ul class="comment-box"style="list-style:none">
                             <li class="user"><strong><%=comment.user.username%></strong></li> 
+                            <%if(comment.rating !== 0){%>
                             <li><strong> Rating: </strong><%= comment.rating%></li>
+                            <%}%>
                             <li><strong>User Comment:</strong></li>
                             <div class="comment">
                                 <li c><%=comment.comment%></li>
