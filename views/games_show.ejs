@@ -23,9 +23,11 @@
                             <%avgUserRatings = sum/totalRatings%>
                             <%}%> 
                             <%})%>               
-                            <%if(avgUserRatings !== null) {%>
-                                <%=stars%>
-                        <%}%> 
+                        <%if(avgUserRatings !== null) {%>
+                                <%=stars.repeat(Math.round(avgUserRatings))%>
+                        <%} else {%>
+                            N/A
+                        <%}%>
                 </h3>
                 <ul class="game-info"style="list-style: none">
                     <li>Genre: <%=game.genre%></li>
