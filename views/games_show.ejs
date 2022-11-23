@@ -13,17 +13,20 @@
                 
                 <%let sum = null%>
                 <%let totalRatings=null%>
-                <%let avgUserRatings = null%>
+                <%let avgUserRatings%>
                 <%let stars = "⭐"%>
                 <h3>User Rating: 
                     <%comments.map((comment, i)=>{%>
                         <%if(comment.rating) {%>
-                            <%sum=+comment.rating%>
+                            <%sum= sum+comment.rating%>
+                            <%console.log(sum)%>
                             <%totalRatings+=1%>
-                            <%avgUserRatings = sum/totalRatings%>
+                            <%console.log(totalRatings)%>
                             <%}%> 
+                            <%avgUserRatings = sum/totalRatings%>
+                            <%console.log(avgUserRatings)%>
                             <%})%>               
-                        <%if(avgUserRatings !== null) {%>
+                        <%if(avgUserRatings) {%>
                                 <%=stars.repeat(Math.round(avgUserRatings))%>
                         <%} else {%>
                             N/A
@@ -84,7 +87,9 @@
                     <% comments.forEach(comment => { %>
                         <ul class="comment-box"style="list-style:none">
                             <li class="user"><strong><%=comment.user.username%></strong></li> 
+                            <%if(comment.rating !== 0){%>
                             <li><strong> Rating: </strong><%= comment.rating%></li>
+                            <%}%>
                             <li><strong>User Comment:</strong></li>
                             <div class="comment">
                                 <li c><%=comment.comment%></li>
