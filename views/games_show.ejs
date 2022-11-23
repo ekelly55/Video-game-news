@@ -15,17 +15,18 @@
                 <%let totalRatings=null%>
                 <%let avgUserRatings = null%>
                 <%let stars = "⭐"%>
-                <%comments.map((comment, i)=>{%>
-                    <%if(comment.rating) {%>
-                        <%sum=+comment.rating%>
-                        <%totalRatings+=1%>
-                        <%avgUserRatings = sum/totalRatings%>
+                <h3>User Rating: 
+                    <%comments.map((comment, i)=>{%>
+                        <%if(comment.rating) {%>
+                            <%sum=+comment.rating%>
+                            <%totalRatings+=1%>
+                            <%avgUserRatings = sum/totalRatings%>
+                            <%}%> 
+                            <%})%>               
+                            <%if(avgUserRatings !== null) {%>
+                                <%=stars%>
                         <%}%> 
-                        <%})%>               
-                        <%if(avgUserRatings !== null) {%>
-                            <h3>User Rating:</h3>
-                        <%}%> 
-                
+                </h3>
                 <ul class="game-info"style="list-style: none">
                     <li>Genre: <%=game.genre%></li>
                     <li>Platforms: <%=game.platform%></li>
