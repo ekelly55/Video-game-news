@@ -3,11 +3,11 @@
   <%- include ("./ejs_partials/head.ejs")%>
   <body>
     <link rel="stylesheet" href="styles/register.css">
-    <section>
     <main>
+      <section class="register-container">
       <div class="register">
         <h1 class="h1Register">Register</h1>
-        <form method="POST" action="/register">
+        <form class="register-form" method="POST" action="/register">
           <p><label for="avatar">Avatar</label>
           <input name="avatar"type="text" placeholder="Avatar"/></p>
 
@@ -22,6 +22,8 @@
        
           <button type="submit">Register</button>
         </form>
+      </div>
+      </section>  
     </main>
   </body>
   <%- include ("./ejs_partials/footer.ejs")%>

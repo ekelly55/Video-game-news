@@ -1,36 +1,100 @@
+.header-nav {
+    display: grid;
+    grid-template-rows: 1.5fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
 #header {
     width: 100%;
     text-align: center;
     height: 50px;
     font-family: 'Alumni Sans Pinstripe', sans-serif;
     font-size: 50px;
+    grid-row:  1 / span 3;
+    grid-column: 1 / span 3;
 }
-/* img {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+
+
+.logo {
+    border: 10px solid violet;
 }
-h1 {
-    text-align: center;
-    border-bottom: double;
-    font-family: 'Alumni Sans Pinstripe', sans-serif;
-} */
-/* .topnav {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 20px;
-    margin-top: 20px;
-} */
+
+
+nav {
+    grid-row:  2 / span 1;
+    grid-column: 1 / span 3;
+    display: grid;
+    grid-template-rows: 2;
+    grid-template-columns: 3;
+    background-color: black;
+    color: white;
+    padding: 30px 15px 0px 15px;
+}
+
+
+nav:hover {
+    background-color: violet;
+}
+
+
+a:link {
+    text-decoration: none;
+    color: white
+}
+
+
+a:visited {
+    text-decoration: none;
+    color: white
+}
+
+
+a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+
 #leftBar {
     display: inline-flex;
     float: left;
     font-size: 25px;
     gap: 20px;
+    font-family: 'Michroma', sans-serif;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
 }
+
+
+.search {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+
+
 #rightBar {
     display: inline-flex;
     float: right;
     font-size: 25px;
     gap: 20px;
+    font-family: 'Michroma', sans-serif;
+    grid-row: 1 / span 1;
+    grid-column: 3 / span 1;
+    justify-content: right;
 }
+
+
+.username-display {
+    display: inline-flex;
+    grid-row:  2 / span 3;
+    grid-column: 3 / span 1;
+    justify-content: right;
+}
+
+
+.welcome-empty {
+    opacity: 0;
+}
+

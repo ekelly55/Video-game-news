@@ -18,16 +18,18 @@ const userSchema = new mongoose.Schema(
             required: true,
             unique: true,
         },
+
         avatar: {
             type: String,
             default: "https://i.imgur.com/VfBLBKRs.png"
         },
-        comment:{type: mongoose.Types.ObjectId, ref: "Comment"},
         
+        comment:{type: mongoose.Types.ObjectId, ref: "Comment"},
     },
+
     {
         timestamps: true,
-    }
+    },
 );
 
 const User = mongoose.model('User', userSchema);
