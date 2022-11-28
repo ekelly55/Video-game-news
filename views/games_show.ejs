@@ -16,7 +16,7 @@
                 <%let avgUserRatings%>
                 <%let stars = "⭐"%>
                 <h3>User Rating: 
-                    <%comments.map((comment, i)=>{%>
+                    <%comments.forEach(comment => {%>
                         <%if(comment.rating) {%>
                             <%sum= sum+comment.rating%>
                             <%console.log(sum)%>
