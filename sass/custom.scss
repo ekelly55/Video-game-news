@@ -1,8 +1,0 @@
-$primary:       #6610f2;
-$secondary:     tint-color($primary, 60%);
-$success:       #20c997;
-$info:          tint-color($primary, 20%);
-$dark:         shade-color($primary, 80%);
-$light:          tint-color($primary, 80%);
-
-@import "../node_modules/bootstrap/scss/bootstrap.scss"
