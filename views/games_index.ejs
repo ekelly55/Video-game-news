@@ -6,6 +6,26 @@
     <body class=>
     <%- include ("./ejs_partials/nav.ejs")%>
     <main class="main">
+        <div class="align-items-center justify-content-center" style="height: 400px">
+            <div class="p-5 text-center bg-image" style="
+    background-image: url('<%= games[0].image%>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    
+    ">
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); height: 100%">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+            <h1 class="mb-3">Upcoming</h1>
+            <h4 class="mb-3"><%=games[0].name%></h4>
+            <h6 class="mb-3"><%=games[0].release%></h6>
+            <a class="btn btn-outline-light btn-lg" href="<%=games[0].trailer%>" role="button">Watch Trailer</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
         <section class="container upcoming">
             <h2> Upcoming </h2>
             <h3> <%=games[0].name%></h3>
