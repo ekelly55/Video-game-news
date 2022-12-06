@@ -55,9 +55,12 @@
                 <%}%>
             </div>
             <%if(typeof currentUser !== "undefined") {%>
+                <%const date = new Date(game.release)%>
+                <%const today = new Date()%>
                 <section class="comment-form">
                     <h2 class="form-title">Create a new comment:</h2>
                     <form method="POST" action="/comments/:id">
+                        <%if(date.getTime() <= today.getTime() ){%>
                         <div>
                             <label for="rating">Rating: </label>
                             <select name="rating" id="rating">
@@ -69,6 +72,7 @@
                                 <option value=5>&#9734 &#9734 &#9734 &#9734 &#9734</option>
                             </select>
                         </div>
+                        <%}%>
                         <div>
                             Comment: 
                             <textarea name="comment"></textarea>
