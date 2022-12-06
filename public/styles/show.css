@@ -53,7 +53,7 @@ textarea {
 .delete-button,  .edit-button, .add-comment-button {
     background-color: black;
     border: 1px solid black;
-    color: violet;
+    color: #c7b3e7;
     border-radius: 5px;
     font-family: 'Michroma', sans-serif;
     padding: 5px;
@@ -71,7 +71,7 @@ textarea {
 
 .comment-section{
     text-align: left;
-    background-color: violet;
+    background-color: #9a69e7;
     padding: 10px;
     max-width: 520px;
 }
