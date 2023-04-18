@@ -4,9 +4,8 @@
     <link rel="stylesheet" href="styles/index.css">
 
     <body class=>
-        <%- include ("./ejs_partials/nav.ejs")%>
-            <main class="main">
-                <div class="upcoming text-center bg-image rounded-3" style="
+        <main class="main">
+            <div class="upcoming text-center bg-image rounded-3" style="
                 background-image: url('https://cdn.focus-home.com/fhi-fastforward-admin/resources/games/aliens-dark-descent/images/22032023_98bf7736059a4a34bed7b055067e2be6.jpeg');
                 height: 400px;
                 ">
@@ -22,15 +21,16 @@
                                 </h6>
                                 <a class="btn btn-outline-light btn-lg" href="<%=games[0].trailer%>" role="button">Watch
                                     Trailer</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <h2 class="fGame mt-5">Featured Games</h2>
-                <section class="lower-half">
-                    <div class="container games-index">
-                        <ul class="row one" style="list-style: none">
+                    <%- include ("./ejs_partials/nav.ejs")%>
+                    
+                    <h2 class="fGame mt-5">Featured Games</h2>
+                    <section class="lower-half bg-light">
+                        <div class="container games-index">
+                            <ul class="row one" style="list-style: none">
                             <% for(let i=1; i<games.length; i++) { %>
                                 <% const thisGame=games[i] %>
                                     <div class=" col game-box">
