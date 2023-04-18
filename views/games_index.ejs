@@ -14,12 +14,12 @@
                             <div class="text-white">
                                 <h1 class="mb-3">Upcoming</h1>
                                 <h4 class="mb-3">
-                                    <%=games[0].name%>
+                                    <%=games[games.length -1].name%>
                                 </h4>
                                 <h6 class="mb-3">
-                                    <%=games[0].release%>
+                                    <%=games[games.length -1].release%>
                                 </h6>
-                                <a class="btn btn-outline-light btn-lg" href="<%=games[0].trailer%>" role="button">Watch
+                                <a class="btn btn-outline-light btn-lg" href="<%=games[games.length -1].trailer%>" target="_blank" role="button">Watch
                                     Trailer</a>
                                 </div>
                             </div>
@@ -31,10 +31,10 @@
                     <section class="lower-half bg-light">
                         <div class="container games-index">
                             <ul class="row one" style="list-style: none">
-                            <% for(let i=1; i<games.length; i++) { %>
+                            <% for(let i=0; i<games.length; i++) { %>
                                 <% const thisGame=games[i] %>
                                     <div class=" col game-box">
-                                        <a href="/games/<%=thisGame._id%>"> <img src="<%=thisGame.image%>"
+                                        <a href="/games/<%=thisGame._id%>" > <img src="<%=thisGame.image%>"
                                                 alt="<%=thisGame.name%>"></a>
                                     </div>
                                     <%}%>
