@@ -6,7 +6,7 @@
     <body class="bg-light">
         <%- include ("./ejs_partials/nav.ejs")%>
         <main class="main bg-light">
-            <div class="upcoming text-center bg-image" style="
+            <div class="upcoming text-center text-dark bg-image" style="
                 background-image: url('https://cdn.focus-home.com/fhi-fastforward-admin/resources/games/aliens-dark-descent/images/22032023_98bf7736059a4a34bed7b055067e2be6.jpeg');
                 height: 400px;
                 ">
@@ -33,19 +33,19 @@
                             <ul class="row one" style="list-style: none">
                             <% for(let i=1; i<games.length; i++) { %>
                                 <% const thisGame=games[i] %>
-                                    <div class=" col game-box">
-                                        <a href="/games/<%=thisGame._id%>"> <img src="<%=thisGame.image%>"
-                                                alt="<%=thisGame.name%>"></a>
-                                    </div>
-                                    <%}%>
+                                <div class="col game-box">
+                                    <a href="/games/<%=thisGame._id%>"><img src="<%=thisGame.image%>"  alt="<%=thisGame.name%>"> 
+                                </div>
+                                    
+                                <%}%>
                         </ul>
                     </div>
                 </section>
                 <%if(typeof currentUser !=="undefined" ) {%>
                     <% if(currentUser.id==="6373f943c0d65aafed339b74" ) {%>
-                        <section class="add-new ps-5">
+                        <section class="add-new ps-5 mt-2">
                             <form action="/games/new" method="GET">
-                                <input class="new-button" type="submit" value="Add New Game" />
+                                <input class="new-button btn btn-outline-success" type="submit" value="Add New Game" />
                             </form>
                         </section>
                         <%}%>
@@ -53,8 +53,8 @@
             </main>
             <%- include ("./ejs_partials/footer.ejs")%>
     </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
 
 </html>
