@@ -34,12 +34,13 @@
                             <% for(let i=1; i<games.length; i++) { %>
                                 <% const thisGame=games[i] %>
                                 <div class="col game-box">
-                                    <a href="/games/<%=thisGame._id%>"><img src="<%=thisGame.image%>"  alt="<%=thisGame.name%>"> 
+                                    <a href="/games/<%=thisGame._id%>"><img src="<%=thisGame.image%>"  alt="<%=thisGame.name%>"></a> 
                                 </div>
                                     
                                 <%}%>
                         </ul>
                     </div>
+                    
                 </section>
                 <%if(typeof currentUser !=="undefined" ) {%>
                     <% if(currentUser.id==="6373f943c0d65aafed339b74" ) {%>
