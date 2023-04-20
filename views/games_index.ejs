@@ -5,7 +5,7 @@
     
     <body class="bg-light">
         <%- include ("./ejs_partials/nav.ejs")%>
-        <main class="main bg-light">
+        <main class="main bg-white">
             <div class="upcoming text-center text-dark bg-image" style="
                 background-image: url('https://cdn.focus-home.com/fhi-fastforward-admin/resources/games/aliens-dark-descent/images/22032023_98bf7736059a4a34bed7b055067e2be6.jpeg');
                 height: 400px;
@@ -27,14 +27,14 @@
                         </div>
                     </div>
                     
-                    <h2 class="fGame mt-5 mb-5">Featured Games</h2>
-                    <section class="lower-half bg-light">
+                    <h2 class="fGame mt-5 bg-white mb-5">Featured Games</h2>
+                    <section class="lower-half bg-white">
                         <div class="container games-index">
                             <ul class="row one" style="list-style: none">
                             <% for(let i=0; i<games.length; i++) { %>
                                 <% const thisGame=games[i] %>
-                                <div class="col game-box">
-                                    <a href="/games/<%=thisGame._id%>" ><img src="<%=thisGame.image%>"  alt="<%=thisGame.name%>"></a> 
+                                <div class="col game-box bg-light py-3 align-middle shadow-lg" style="height: fit-content; width: fit-content">
+                                    <a href="/games/<%=thisGame._id%>" ><img src="<%=thisGame.image%>" alt="<%=thisGame.name%>"></a> 
                                 </div>
                                     
                                 <%}%>
