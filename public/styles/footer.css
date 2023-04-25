@@ -7,12 +7,10 @@
    text-align: center;
 }
 
-
-.footer-link:link {
-   text-decoration: none;
-   color: black
- }
- 
+.footer-link {
+  color: white;
+  text-decoration: none;
+}
 
  .footer-link:visited {
    text-decoration: none;
@@ -22,6 +20,8 @@
  
  .footer-link:hover {
    text-decoration: none;
-   color: violet;
-   background-color: white;
+   color: #13043a
+   
  }
+
+ 

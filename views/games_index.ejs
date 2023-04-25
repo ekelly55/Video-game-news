@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="bg-primary">
     <%- include ("./ejs_partials/head.ejs")%>
     <link rel="stylesheet" href="styles/index.css">
     
-    <body class="">
+    <body class="bg-primary">
         <%- include ("./ejs_partials/nav.ejs")%>
         <main class="main bg-light">
-            <div class="upcoming text-center text-dark bg-image" style="
+            <div class="upcoming text-center  text-dark bg-image" style="
                 background-image: url('https://cdn.focus-home.com/fhi-fastforward-admin/resources/games/aliens-dark-descent/images/22032023_98bf7736059a4a34bed7b055067e2be6.jpeg');
                 height: 400px;
                 ">
@@ -29,11 +29,11 @@
                     
                     <h2 class="fGame mt-5 bg-light mb-5 text-center">Featured Games</h2>
                     <section class="lower-half bg-light">
-                        <div class="container games-index">
-                            <ul class="row one" style="list-style: none">
+                        <div class="container justify-content-center games-index">
+                            <ul class="row align-items-center justify-content-center px-0 one" style="list-style: none">
                             <% for(let i=0; i<games.length; i++) { %>
                                 <% const thisGame=games[i] %>
-                                <div class="col-4 game-box">
+                                <div class="col-auto py-3 game-box">
                                     <a href="/games/<%=thisGame._id%>" ><img class="featured rounded border border-4 border-white shadow-lg"src="<%=thisGame.image%>" alt="<%=thisGame.name%>"></a> 
                                 </div>
                                     
