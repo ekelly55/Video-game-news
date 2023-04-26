@@ -1,6 +1,6 @@
-to do: card-like component for images: with shading and hover effect
-diff color on footer
+
+
 better looking search bar: smaller? not rounded? color?
-pin navbar
+pin navbar?
 
 
