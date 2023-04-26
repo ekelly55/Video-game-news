@@ -1,6 +1,12 @@
 
 
-better looking search bar: smaller? not rounded? color?
-pin navbar?
+finish styling show page
+
+style news and about pages
+
+better rating display
+
+better forms style
 
 
+maybe do some gradients ooooh with paralax effect?

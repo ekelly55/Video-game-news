@@ -8,62 +8,65 @@
         <!-- rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
         crossorigin="anonymous"> -->
 
-    <body class="bg-primary p-0">
+    <body class="bg-primary text-dark p-0">
         <%- include ("./ejs_partials/nav.ejs")%>
             <main class="main py-5 bg-light">
-                <div class="row game d-flex justify-content-center ">
-                    <div id="col-lg-6 col-sm-12 info-col m-2" style="width: fit-content">
+                <div class="row game justify-content-center ">
+                    <div id="col info-col  m-2" style="width: fit-content">
                         <h1 class="game-name">
                             <%=game.name%>
                         </h1>
-                        <img class="show-image" src="<%=game.image%>">
+                        <img class="show-image my-2 mx-auto d-block " src="<%=game.image%>">
 
                         <%let sum=null%>
                         <%let totalRatings=null%>
                         <%let avgUserRatings%>
                         <%let stars="⭐" %>
-                        <h3>User Rating:
-                        <%comments.forEach(comment=> {%>
-                            <%if(comment.rating) {%>
-                                <%sum= sum+comment.rating%>
-                                <%console.log(sum)%>
-                                <%totalRatings+=1%>
-                                <%console.log(totalRatings)%>
-                            <%}%>
-                            <%avgUserRatings=sum/totalRatings%>
-                            <%console.log(avgUserRatings)%>
-                        <%})%>
-                        <%if(avgUserRatings) {%>
-                            <%=stars.repeat(Math.round(avgUserRatings))%>
-                        <%} else {%>
-                            N/A
-                        <%}%>
-                        </h3>
-                            <ul class="game-info" style="list-style: none">
-                                <li>Genre: <%=game.genre%></li>
-                                <li>Platforms: <%=game.platform%></li>
-                                <li>Price: $<%=game.price%></li>
-                                <li>Release Date:<%=game.release%></li>
-                                <li><a href="<%=game.trailer%>" target="_blank"> Watch Trailer </a></li>
-                            </ul>
-                            <%if(typeof currentUser !=="undefined" ) {%>
-                                <% if(currentUser.id==="6373f943c0d65aafed339b74" ) {%>
-                                    <section class="edit-delete">
-                                        <form action="/games/<%=game._id%>/edit" method="GET">
-                                            <input class="edit-button" type="submit" value="Edit Game" />
-                                        </form>
-                                        <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
-                                            <input class="delete-button" type="submit" value="Delete Game" />
-                                        </form>
-                                    </section>
-                                <%}%>
-                            <%}%>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 comment-col m-2" style="width: fit-content">
-
-                    <%if(typeof currentUser !=="undefined" ) {%>
-                        <%const date=new Date(game.release)%>
-                        <%const today=new Date()%>
+                        
+                        <h3 class="text-center">User Rating:
+                            <%comments.forEach(comment=> {%>
+                                <%if(comment.rating) {%>
+                                    <%sum= sum+comment.rating%>
+                                    <%console.log(sum)%>
+                                    <%totalRatings+=1%>
+                                    <%console.log(totalRatings)%>
+                                    <%}%>
+                                    <%avgUserRatings=sum/totalRatings%>
+                                    <%console.log(avgUserRatings)%>
+                                    <%})%>
+                                    <%if(avgUserRatings) {%>
+                                        <%=stars.repeat(Math.round(avgUserRatings))%>
+                                        <%} else {%>
+                                            N/A
+                                            <%}%>
+                                        </h3>
+                                        <div class="info-block d-flex justify-content-center">
+                                            <ul class="game-info" style="list-style: none">
+                                                <li>Genre: <%=game.genre%></li>
+                                                <li>Platforms: <%=game.platform%></li>
+                                                <li>Price: $<%=game.price%></li>
+                                                <li>Release Date:<%=game.release%></li>
+                                                <li><a href="<%=game.trailer%>" target="_blank"> Watch Trailer </a></li>
+                                                <%if(typeof currentUser !=="undefined" ) {%>
+                                                    <% if(currentUser.id==="6373f943c0d65aafed339b74" ) {%>
+                                                        <section class="edit-delete">
+                                                            <form action="/games/<%=game._id%>/edit" method="GET">
+                                                                <input class="edit-button" type="submit" value="Edit Game" />
+                                                            </form>
+                                                            <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
+                                                                <input class="delete-button" type="submit" value="Delete Game" />
+                                                            </form>
+                                                        </section>
+                                                    </ul>
+                                                </div>
+                                                    <%}%>
+                                                    <%}%>
+                                                </div>
+                                                <div class="col-lg-6 col-sm-12 comment-col m-2" style="width: fit-content">
+                                                    
+                                                    <%if(typeof currentUser !=="undefined" ) {%>
+                                                        <%const date=new Date(game.release)%>
+                                                        <%const today=new Date()%>
                         <section class="comment-form">
                             <h2 class="form-title">Create a new comment:</h2>
                             <form method="POST" action="/comments/:id">
