@@ -1,11 +1,11 @@
-.footer {
+/* .footer {
    display: flex;
    flex-direction: column;
    align-content: flex-end;
    align-content: center;
    flex-wrap: wrap;
    text-align: center;
-}
+} */
 
 .footer-link {
   color: white;
