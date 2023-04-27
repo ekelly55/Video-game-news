@@ -10,13 +10,13 @@
 
     <body class="bg-primary text-dark p-0">
         <%- include ("./ejs_partials/nav.ejs")%>
-            <main class="main py-5 bg-light">
+            <main class="main  py-5 bg-light">
                 <div class="row game justify-content-center ">
-                    <div id="col info-col  m-2" style="width: fit-content">
-                        <h1 class="game-name">
+                    <div class="col info-col m-2" style="width: fit-content">
+                        <h1 class="game-name text-center">
                             <%=game.name%>
                         </h1>
-                        <img class="show-image my-2 mx-auto d-block " src="<%=game.image%>">
+                        <img class="show-image my-2 rounded border border-4 border-white shadow-lg mx-auto d-block " src="<%=game.image%>">
 
                         <%let sum=null%>
                         <%let totalRatings=null%>
@@ -41,7 +41,7 @@
                                             <%}%>
                                         </h3>
                                         <div class="info-block d-flex justify-content-center">
-                                            <ul class="game-info" style="list-style: none">
+                                            <ul class="game-info bg-white shadow-lg m-2 p-2" style="list-style: none">
                                                 <li>Genre: <%=game.genre%></li>
                                                 <li>Platforms: <%=game.platform%></li>
                                                 <li>Price: $<%=game.price%></li>
@@ -58,81 +58,85 @@
                                                             </form>
                                                         </section>
                                                     </ul>
-                                                </div>
                                                     <%}%>
                                                     <%}%>
                                                 </div>
-                                                <div class="col-lg-6 col-sm-12 comment-col m-2" style="width: fit-content">
+                                            </div>
+                                        <!-- </div> -->
+
+                                                <div class="col comment-col m-2" style="width: fit-content">
                                                     
                                                     <%if(typeof currentUser !=="undefined" ) {%>
                                                         <%const date=new Date(game.release)%>
                                                         <%const today=new Date()%>
-                        <section class="comment-form">
-                            <h2 class="form-title">Create a new comment:</h2>
-                            <form method="POST" action="/comments/:id">
-                            <%if(date.getTime() <=today.getTime() ){%>
-                                <div>
-                                     <label for="rating">Rating: </label>
-                                     <select name="rating" id="rating">
-                                        <option value=0> </option>
-                                        <option value=1>&#9734</option>
-                                        <option value=2>&#9734 &#9734</option>
-                                        <option value=3>&#9734 &#9734 &#9734</option>
-                                        <option value=4>&#9734 &#9734 &#9734 &#9734</option>
-                                        <option value=5>&#9734 &#9734 &#9734 &#9734 &#9734</option>
-                                    </select>
-                                </div>
-                            <%}%>
-                                <div>
-                                    <label for="comment">Comment:</label>
-                                    <textarea name="comment"></textarea>
-                                </div>
-                                <div>
-                                    <input name="game" type="hidden" value="<%=game._id%>" />
-                                </div>
-                                <div>
-                                    <input name="user" type="hidden" value="<%=currentUser.id%>" />
-                                </div>
-                                <button class="add-comment-button" type="submit">Add your comment</button>
-                            </form>
-                        </section>
-                    <%}%>
-                        <div class="comment-display">
-                            <h2 class="comment-head">All Comments</h2>
-                                <div class="comment-section">
-                                <% comments.forEach(comment=> { %>
-                                    <ul class="comment-box" style="list-style:none">
-                                        <li class="user"><strong><%=comment.user.username%></strong></li>
-                                        <%if(comment.rating !==0){%>
-                                            <li><strong> Rating: </strong><%= comment.rating%></li>
-                                        <%}%>
-                                        <li><strong>User Comment:</strong></li>
-                                        <div class="comment">
-                                            <li><%=comment.comment%></li>
-                                        </div>
-                                        <%if(typeof currentUser !=="undefined" ) {%>
-                                            <%if(currentUser.id==="6373f943c0d65aafed339b74" || currentUser.id===comment.user.id) {%>
-                                                <li>
-                                                    <form
-                                                        action="/comments/<%=comment._id%>?_method=DELETE"
-                                                        method="POST"
-                                                    >
-                                                        <input 
-                                                            class="delete-button"
-                                                            type="submit"
-                                                            value="Delete Comment" 
-                                                        />
-                                                    </form>
-                                                </li>
-                                            <%}%>
-                                        <%}%>
-                                    </ul>
-                                <%})%>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
+                                                        <section class="comment-form">
+                                                            <h2 class="form-title">Create a new comment:</h2>
+                                                            <form method="POST" action="/comments/:id">
+                                                                <%if(date.getTime() <=today.getTime() ){%>
+                                                                    <div>
+                                                                        <label for="rating">Rating: </label>
+                                                                        <select name="rating" id="rating">
+                                                                            <option value=0> </option>
+                                                                            <option value=1>&#9734</option>
+                                                                            <option value=2>&#9734 &#9734</option>
+                                                                            <option value=3>&#9734 &#9734 &#9734</option>
+                                                                            <option value=4>&#9734 &#9734 &#9734 &#9734</option>
+                                                                            <option value=5>&#9734 &#9734 &#9734 &#9734 &#9734</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <%}%>
+                                                                    <div>
+                                                                        <label for="comment">Comment:</label>
+                                                                        <textarea name="comment"></textarea>
+                                                                    </div>
+                                                                    <div>
+                                                                        <input name="game" type="hidden" value="<%=game._id%>" />
+                                                                    </div>
+                                                                    <div>
+                                                                        <input name="user" type="hidden" value="<%=currentUser.id%>" />
+                                                                    </div>
+                                                                    <button class="add-comment-button" type="submit">Add your comment</button>
+                                                                </form>
+                                                            </section>
+                                                            <%}%>
+                                                            <div class="comment-display">
+                                                                <h2 class="comment-head">All Comments</h2>
+                                                                <div class="comment-section">
+                                                                    <% comments.forEach(comment=> { %>
+                                                                        <ul class="comment-box bg-white shadow-lg" style="list-style:none">
+                                                                            <li class="user"><strong><%=comment.user.username%></strong></li>
+                                                                            <%if(comment.rating !==0){%>
+                                                                                <li><strong> Rating: </strong><%= comment.rating%></li>
+                                                                                <%}%>
+                                                                                <li><strong>User Comment:</strong></li>
+                                                                                <div class="comment">
+                                                                                    <li><%=comment.comment%></li>
+                                                                                </div>
+                                                                                <%if(typeof currentUser !=="undefined" ) {%>
+                                                                                    <%if(currentUser.id==="6373f943c0d65aafed339b74" || currentUser.id===comment.user.id) {%>
+                                                                                    
+                                                                                        <li>
+                                                                                            <form
+                                                                                            action="/comments/<%=comment._id%>?_method=DELETE"
+                                                                                            method="POST"
+                                                                                            >
+                                                                                            <input 
+                                                                                            class="delete-button"
+                                                                                            type="submit"
+                                                                                            value="Delete Comment" 
+                                                                                            />
+                                                                                        </form>
+                                                                                    </li>
+                                                                                    <%}%>
+                                                                                    <%}%>
+                                                                                    <%})%>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </main>
             <%- include ("./ejs_partials/footer.ejs")%>
     </body>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
