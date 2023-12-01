@@ -12,7 +12,7 @@
                 ">
                     <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); height: 100%">
                         <div class="d-flex justify-content-center align-items-center h-100">
-                            <div class="text-white">
+                            <div class="text-light">
                                 <h1 class="mb-3">Upcoming</h1>
                                 <h4 class="mb-3">
                                     <%=games[games.length-1].name%>
@@ -27,14 +27,14 @@
                         </div>
                     </div>
                     
-                    <h2 class="fGame mt-5 bg-dark mb-5 text-center">Featured Games</h2>
+                    <h2 class="fGame mt-5 bg-dark text-light mb-5 text-center">Featured Games</h2>
                     <section class="lower-half bg-dark">
                         <div class="container justify-content-center games-index">
                             <ul class="row align-items-center justify-content-center px-0 one" style="list-style: none">
                             <% for(let i=0; i<games.length; i++) { %>
                                 <% const thisGame=games[i] %>
                                 <div class="col-auto py-3 game-box">
-                                    <a href="/games/<%=thisGame._id%>" ><img class="featured rounded border border-4 border-white shadow-lg"src="<%=thisGame.image%>" alt="<%=thisGame.name%>"></a> 
+                                    <a href="/games/<%=thisGame._id%>" ><img class="featured rounded border border-4 border-light "src="<%=thisGame.image%>" alt="<%=thisGame.name%>"></a> 
                                 </div>
                                     
                                 <%}%>

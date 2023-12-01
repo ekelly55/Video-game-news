@@ -2,27 +2,27 @@
 
 <nav class="navbar navbar-expand-lg bg-dark" style="width: 100vw">
     <div class="container-fluid text-primary">
-      <a class="navbar-brand bg-primary text-info" href="/games"><img class="logo" src="/images/Noob insider (1).png"style="height: 100px;"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand border border-primary text-info" href="/games"><img class="logo" src="/images/Noob insider (1).png"style="height: 100px;"></a>
+      <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse container" id="navbarSupportedContent">
+      <div class="collapse  navbar-collapse container" id="navbarSupportedContent">
         <ul class="navbar-nav mb-lg-0 col">
           <li class="nav-item">
-            <a class="nav-link fs-5" href="/games/News">News</a>
+            <a class="nav-link text-primary fs-5" href="/games/News">News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="/login">Login</a>
+            <a class="nav-link text-primary fs-5" href="/login">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="/register">Register</a>
+            <a class="nav-link text-primary fs-5" href="/register">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="/logout">Logout</a>
+            <a class="nav-link text-primary fs-5" href="/logout">Logout</a>
           </li>
         </ul>
 
-        <div class="username-display text-white me-auto mb-lg-0 align-content-center col">
+        <div class="username-display text-light me-auto mb-lg-0 align-content-center col">
             <%if(currentUser !== undefined) {%>
                 <p class="text-center fs-5 mb-0">Welcome, <%=currentUser.username%></p>
                 <%} else {%>
