@@ -24,9 +24,9 @@
 
         <div class="username-display text-light me-auto mb-lg-0 align-content-center col">
             <%if(currentUser !== undefined) {%>
-                <p class="text-center fs-5 mb-0">Welcome, <%=currentUser.username%></p>
+                <p class="text-center fs-5 mb-0">Welcome <%=currentUser.username%></p>
                 <%} else {%>
-                <p class="text-center fs-5 mb-0 welcome-empty">Welcome</p>    
+                <p class="text-center fs-5 mb-0 welcome-empty"></p>    
                 <%}%>
         </div>
         <form class="d-flex col">

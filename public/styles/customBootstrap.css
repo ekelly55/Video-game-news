@@ -39,7 +39,7 @@
   --bs-dark: #16161a;
   --bs-primary-rgb: 127, 90, 240;
   --bs-secondary-rgb: 102, 48, 242;
-  --bs-success-rgb: 78, 165, 217;
+  --bs-success-rgb: 44, 182, 125;
   --bs-info-rgb: 172, 243, 157;
   --bs-warning-rgb: 237, 246, 125;
   --bs-danger-rgb: 239, 35, 60;
@@ -97,6 +97,7 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height: 100vh
 }
 
 hr {
@@ -10723,6 +10724,11 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+.featured:hover {
+  border-color: rgb(127, 90, 240);
+  box-shadow: 0px 0px 10px 4px rgb(127, 90, 240);
 }
 
 /*# sourceMappingURL=customBootstrap.css.map */
