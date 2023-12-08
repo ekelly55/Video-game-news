@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-primary">
+<html lang="en" class="bg-dark">
     <!-- <link rel="stylesheet" href="/styles/show.css"> -->
     <!-- <link rel="stylesheet" href="styles/main.css"> -->
     <%- include ("./ejs_partials/head.ejs")%>
@@ -8,22 +8,25 @@
         <!-- rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
         crossorigin="anonymous"> -->
 
-    <body class="bg-primary text-dark p-0">
+    <body class="bg-dark text-dark p-0">
         <%- include ("./ejs_partials/nav.ejs")%>
-            <main class="main  py-5 bg-light">
+            <main class="main  py-5 bg-dark">
                 <div class="row game justify-content-center ">
                     <div class="col info-col m-2" style="width: fit-content">
-                        <h1 class="game-name text-center">
+                        <h1 class="game-name text-center text-light">
                             <%=game.name%>
+                            
                         </h1>
-                        <img class="show-image my-2 rounded border border-4 border-white shadow-lg mx-auto d-block " src="<%=game.image%>">
+                        <img class="show-image my-2 rounded border border-2 border-light mx-auto d-block " src="<%=game.image%>">
 
                         <%let sum=null%>
                         <%let totalRatings=null%>
                         <%let avgUserRatings%>
-                        <%let stars="⭐" %>
+                        <%let stars= 0 %>
+                     
                         
-                        <h3 class="text-center">User Rating:
+                        
+                        <h4 class="text-center text-light">Average User Rating:
                             <%comments.forEach(comment=> {%>
                                 <%if(comment.rating) {%>
                                     <%sum= sum+comment.rating%>
@@ -35,18 +38,22 @@
                                     <%console.log(avgUserRatings)%>
                                     <%})%>
                                     <%if(avgUserRatings) {%>
-                                        <%=stars.repeat(Math.round(avgUserRatings))%>
+                                        <%stars = (Math.round(avgUserRatings))%>
+                                        <%for (const _ of Array.from({ length: stars })) {%>
+                                            <i class="text-primary fa-solid fa-star"></i>
+                                           
+                                          <%}%>
                                         <%} else {%>
                                             N/A
                                             <%}%>
                                         </h3>
                                         <div class="info-block d-flex justify-content-center">
-                                            <ul class="game-info bg-white shadow-lg m-2 p-2" style="list-style: none">
+                                            <ul class="game-info shadow-lg m-2 p-2 bg-dark text-light" style="list-style: none">
                                                 <li>Genre: <%=game.genre%></li>
                                                 <li>Platforms: <%=game.platform%></li>
                                                 <li>Price: $<%=game.price%></li>
                                                 <li>Release Date:<%=game.release%></li>
-                                                <li><a href="<%=game.trailer%>" target="_blank"> Watch Trailer </a></li>
+                                                <li class="mt-1"><a class="btn btn-outline-success btn-sm" href="<%=game.trailer%>" target="_blank"> Watch Trailer </a></li>
                                                 <%if(typeof currentUser !=="undefined" ) {%>
                                                     <% if(currentUser.id==="6373f943c0d65aafed339b74" ) {%>
                                                         <section class="edit-delete">
