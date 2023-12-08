@@ -48,7 +48,7 @@
                                             <%}%>
                                         </h3>
                                         <div class="info-block d-flex justify-content-center">
-                                            <ul class="game-info shadow-lg m-2 p-2 bg-dark text-light" style="list-style: none">
+                                            <ul class="game-info m-2 p-2 bg-dark text-light" style="list-style: none">
                                                 <li>Genre: <%=game.genre%></li>
                                                 <li>Platforms: <%=game.platform%></li>
                                                 <li>Price: $<%=game.price%></li>
@@ -71,18 +71,18 @@
                                             </div>
                                         <!-- </div> -->
 
-                                                <div class="col comment-col m-2" style="width: fit-content">
+                                                <div class="col comment-col m-2">
                                                     
                                                     <%if(typeof currentUser !=="undefined" ) {%>
                                                         <%const date=new Date(game.release)%>
                                                         <%const today=new Date()%>
-                                                        <section class="comment-form">
-                                                            <h2 class="form-title">Create a new comment:</h2>
-                                                            <form method="POST" action="/comments/:id">
+                                                        <section class="shadow bg-secondary comment-form text-light p-2 w-75 mt-5 mb-5">
+                                                            <h4 class="form-title">Create a new comment:</h2>
+                                                            <form class="d-flex flex-column POST" action="/comments/:id">
                                                                 <%if(date.getTime() <=today.getTime() ){%>
                                                                     <div>
-                                                                        <label for="rating">Rating: </label>
-                                                                        <select name="rating" id="rating">
+                                                                        <label class="w-25"for="rating">Rating:</label>
+                                                                        <select class="bg-light"name="rating" id="rating">
                                                                             <option value=0> </option>
                                                                             <option value=1>&#9734</option>
                                                                             <option value=2>&#9734 &#9734</option>
@@ -93,8 +93,8 @@
                                                                     </div>
                                                                     <%}%>
                                                                     <div>
-                                                                        <label for="comment">Comment:</label>
-                                                                        <textarea name="comment"></textarea>
+                                                                        <label class="w-25" for="comment">Comment:</label>
+                                                                        <textarea class="bg-light" name="comment"></textarea>
                                                                     </div>
                                                                     <div>
                                                                         <input name="game" type="hidden" value="<%=game._id%>" />
@@ -102,45 +102,49 @@
                                                                     <div>
                                                                         <input name="user" type="hidden" value="<%=currentUser.id%>" />
                                                                     </div>
-                                                                    <button class="add-comment-button" type="submit">Add your comment</button>
+                                                                    <button class="add-comment-button btn btn-outline-success" type="submit">Add comment</button>
                                                                 </form>
                                                             </section>
                                                             <%}%>
-                                                            <div class="comment-display">
-                                                                <h2 class="comment-head">All Comments</h2>
-                                                                <div class="comment-section">
-                                                                    <% comments.forEach(comment=> { %>
-                                                                        <ul class="comment-box bg-white shadow-lg" style="list-style:none">
-                                                                            <li class="user"><strong><%=comment.user.username%></strong></li>
-                                                                            <%if(comment.rating !==0){%>
-                                                                                <li><strong> Rating: </strong><%= comment.rating%></li>
-                                                                                <%}%>
-                                                                                <li><strong>User Comment:</strong></li>
-                                                                                <div class="comment">
-                                                                                    <li><%=comment.comment%></li>
-                                                                                </div>
-                                                                                <%if(typeof currentUser !=="undefined" ) {%>
-                                                                                    <%if(currentUser.id==="6373f943c0d65aafed339b74" || currentUser.id===comment.user.id) {%>
+                                                            <div class="comment-display w-100">
+                                                                <h2 class="text-light text-center w-75">All Comments</h2>
+                                                                <div class="comment-section w-75">
+                                                                    <ul class="comment-box" style="list-style:none">
+                                                                        <% comments.forEach(comment=> { %>
+                                                                            <li>
+                                                                                <div class="eachComment w-75 bg-secondary text-light  shadow p-2 mt-3"
+
+                                                                                <%if(comment.rating !==0){ %>
+                                                                                    <p> User: <%=comment.user.username%> </p>
                                                                                     
-                                                                                        <li>
-                                                                                            <form
-                                                                                            action="/comments/<%=comment._id%>?_method=DELETE"
-                                                                                            method="POST"
-                                                                                            >
-                                                                                            <input 
-                                                                                            class="delete-button"
-                                                                                            type="submit"
-                                                                                            value="Delete Comment" 
-                                                                                            />
-                                                                                        </form>
+                                                                                    <p> Rating: <%= comment.rating%></p>
+                                                                                    <%}%>
+                                                                                    <p>User Comment:</p>
+                                                                                    <div class="comment bg-light text-dark h-25  m-2 p-2">
+                                                                                        <p><%=comment.comment%><pi>
+                                                                                    </div>
+                                                                                    <%if(typeof currentUser !=="undefined" ) {%>
+                                                                                        <%if(currentUser.id==="6373f943c0d65aafed339b74" || currentUser.id===comment.user.id) {%>
+                                                                                                <form
+                                                                                                action="/comments/<%=comment._id%>?_method=DELETE"
+                                                                                                method="POST"
+                                                                                                >
+                                                                                                <input 
+                                                                                                class="delete-button btn btn-outline-danger"
+                                                                                                type="submit"
+                                                                                                value="Delete Comment" 
+                                                                                                />
+                                                                                            </form>
+                                                                                        
+                                                                                        </div>
                                                                                     </li>
-                                                                                    <%}%>
-                                                                                    <%}%>
-                                                                                    <%})%>
-                                                                                </ul>
+                                                                                        <%}%>
+                                                                                        <%}%>
+                                                                                        <%})%>
+                                                                                    </ul>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
                                                                 </div>
                                                                 
                                                             </main>

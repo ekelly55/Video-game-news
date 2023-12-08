@@ -30,15 +30,15 @@
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
   --bs-primary: #7f5af0;
-  --bs-secondary: #94a1b2;
+  --bs-secondary: #2e1a68;
   --bs-success: #2cb67d;
   --bs-info: #ACF39D;
   --bs-warning: #EDF67D;
   --bs-danger: #EF233C;
-  --bs-light: #fffffe;
-  --bs-dark: #16161a;
+  --bs-light: #E7D8FE;
+  --bs-dark: #13043a;
   --bs-primary-rgb: 127, 90, 240;
-  --bs-secondary-rgb: 102, 48, 242;
+  --bs-secondary-rgb: 46, 26, 104;
   --bs-success-rgb: 44, 182, 125;
   --bs-info-rgb: 172, 243, 157;
   --bs-warning-rgb: 237, 246, 125;
@@ -6943,15 +6943,15 @@ textarea.form-control-lg {
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 0.5rem 1rem rgba(231, 216, 254, 0.15) !important;
 }
 
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(231, 216, 254, 0.075) !important;
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  box-shadow: 0 1rem 3rem rgba(231, 216, 254, 0.175) !important;
 }
 
 .shadow-none {
