@@ -40,7 +40,7 @@
                                     <%if(avgUserRatings) {%>
                                         <%stars = (Math.round(avgUserRatings))%>
                                         <%for (const _ of Array.from({ length: stars })) {%>
-                                            <i class="text-primary fa-solid fa-star"></i>
+                                            <i class="text-success fa-solid fa-star"></i>
                                            
                                           <%}%>
                                         <%} else {%>
@@ -82,19 +82,19 @@
                                                                 <%if(date.getTime() <=today.getTime() ){%>
                                                                     <div>
                                                                         <label class="w-25"for="rating">Rating:</label>
-                                                                        <select class="bg-light"name="rating" id="rating">
-                                                                            <option value=0> </option>
-                                                                            <option value=1>&#9734</option>
-                                                                            <option value=2>&#9734 &#9734</option>
-                                                                            <option value=3>&#9734 &#9734 &#9734</option>
-                                                                            <option value=4>&#9734 &#9734 &#9734 &#9734</option>
-                                                                            <option value=5>&#9734 &#9734 &#9734 &#9734 &#9734</option>
+                                                                        <select class="bg-dark text-success"name="rating" id="rating">
+                                                                            <option value=0></option>
+                                                                            <option value=1>&#9733</option>
+                                                                            <option value=2>&#9733 &#9733</option>
+                                                                            <option value=3>&#9733 &#9733 &#9733</option>
+                                                                            <option value=4>&#9733 &#9733 &#9733 &#9733</option>
+                                                                            <option value=5>&#9733 &#9733 &#9733 &#9733 &#9733</option>
                                                                         </select>
                                                                     </div>
                                                                     <%}%>
                                                                     <div>
                                                                         <label class="w-25" for="comment">Comment:</label>
-                                                                        <textarea class="bg-light" name="comment"></textarea>
+                                                                        <textarea class="bg-dark text-light" name="comment"></textarea>
                                                                     </div>
                                                                     <div>
                                                                         <input name="game" type="hidden" value="<%=game._id%>" />
