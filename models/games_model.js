@@ -43,7 +43,7 @@ const games = [
 
     {
         name: 'Madden NFL 23',
-        image: 'https://i.imgur.com/I8b6Cbym.jpg',
+        image: 'https://i.imgur.com/Kcz7XH2.jpg',
         release: '08/19/2022',
         genre: 'Sports',
         price: '60',

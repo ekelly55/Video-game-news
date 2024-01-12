@@ -18,9 +18,7 @@ router.get('/about_us', (req, res) => {
     res.render('aboutus.ejs')
 });
 
-router.get("/news", (req, res) => {
-    res.render("thenews.ejs")
-});
+
 
 
 router.post('/', async (req, res) => {
