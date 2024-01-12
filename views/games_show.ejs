@@ -71,12 +71,12 @@
                                             </div>
                                         <!-- </div> -->
 
-                                                <div class="col comment-col m-2">
+                                                <div class="col comment-col m-2 d-flex flex-column align-items-center">
                                                     
                                                     <%if(typeof currentUser !=="undefined" ) {%>
                                                         <%const date=new Date(game.release)%>
                                                         <%const today=new Date()%>
-                                                        <section class="shadow bg-secondary comment-form text-light p-2 w-75 mt-5 mb-5">
+                                                        <section class="shadow bg-secondary comment-form text-light  p-2 w-75 mt-5 mb-5">
                                                             <h4 class="form-title">Create a new comment:</h2>
                                                             <form class="d-flex flex-column POST" action="/comments/:id">
                                                                 <%if(date.getTime() <=today.getTime() ){%>
@@ -106,13 +106,13 @@
                                                                 </form>
                                                             </section>
                                                             <%}%>
-                                                            <div class="comment-display w-100">
+                                                            <div class="comment-display w-100 d-flex flex-column align-items-center">
                                                                 <h2 class="text-light text-center w-75">All Comments</h2>
-                                                                <div class="comment-section w-75">
-                                                                    <ul class="comment-box" style="list-style:none">
+                                                                <div class="comment-section d-flex flex-column  align-items-center w-75">
+                                                                    <ul class="comment-box m-0 p-0" style="list-style:none">
                                                                         <% comments.forEach(comment=> { %>
                                                                             <li>
-                                                                                <div class="eachComment w-75 bg-secondary text-light  shadow p-2 mt-3"
+                                                                                <div class="eachComment w-100 bg-secondary text-light  shadow p-2 mt-3"
 
                                                                                 <%if(comment.rating !==0){ %>
                                                                                     <p> User: <%=comment.user.username%> </p>
