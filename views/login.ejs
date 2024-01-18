@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="min-vh-100" lang="en">
   <%- include ("./ejs_partials/head.ejs")%>
-  <body>
-    <link rel="stylesheet" href="styles/login.css">
-      <section class="login-container">
+  <body class="bg-dark">
+    <%- include ("./ejs_partials/nav.ejs")%>
+    
+    <!-- <link rel="stylesheet" href="styles/login.css"> -->
+      <section class="login-container d-flex flex-column align-items-center justify-content-center h-75">
         <div class= "login">
-          <h1 class = "h1Login">LogIn</h1>
-          <form class="login-form" method="POST" action="/login">
-            <p><input name="username"type="text" placeholder="UserName"/></p>
-            <p><input name="password"type="password" placeholder="Password"/></p>
-            <button class="submit" type="submit">LogIn</button>
+          <h1 class = " text-center text-light h1Login">Login</h1>
+          <form class="login-form bg-secondary p-4" method="POST" action="/login">
+            <label class="text-light mb-1" for="username">Username</label>
+            <input class="form-control mb-2" name="username" type="text" placeholder="UserName"/>
+            <label class="text-light mb-1"  for="username">Password</label>
+            <input class="form-control mb-2"  name="password"type="password" placeholder="Password"/>
+            <button class="btn btn-success submit" type="submit">LogIn</button>
           </form>
         </div>
       </section>

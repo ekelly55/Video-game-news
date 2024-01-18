@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="min-vh-100" lang="en">
   <%- include ("./ejs_partials/head.ejs")%>
-  <body>
+  <body class="bg-dark pt-5 text-light">
     <link rel="stylesheet" href="styles/register.css">
-    <main>
-      <section class="register-container">
-      <div class="register">
+    <main class="h-75">
+      <section class="register-container  d-flex flex-column align-items-center ">
         <h1 class="h1Register">Register</h1>
-        <form class="register-form" method="POST" action="/register">
+      <div class="register  bg-secondary border-0">
+        <form class="bg-secondary register-form" method="POST" action="/register">
           <p><label for="avatar">Avatar</label>
-          <input name="avatar"type="text" placeholder="Avatar"/></p>
+          <input class="form-control" name="avatar"type="text" placeholder="Avatar"/></p>
 
             <p><label for="name">UserName</label>
-            <input name="username"type="text" placeholder="UserName"/></p>
+            <input class="form-control" name="username"type="text" placeholder="UserName"/></p>
   
             <p><label for="password">Password</label>
-            <input name="password"type="text" placeholder="Password"/></p>
+            <input class="form-control" name="password"type="text" placeholder="Password"/></p>
  
             <p><label for="email">Email</label>
-            <input name="email"type="text" placeholder="Email"/></p>
+            <input class="form-control" name="email"type="text" placeholder="Email"/></p>
        
-          <button type="submit">Register</button>
-        </form>
+          <button class="btn btn-success" type="submit">Register</button>
+        </form> 
       </div>
       </section>  
     </main>
