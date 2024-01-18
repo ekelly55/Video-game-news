@@ -78,7 +78,7 @@
                                                         <%const today=new Date()%>
                                                         <section class="shadow bg-secondary comment-form text-light  p-2 w-75 mt-5 mb-5">
                                                             <h4 class="form-title">Create a new comment:</h2>
-                                                            <form class="d-flex flex-column POST" action="/comments/:id">
+                                                            <form class="d-flex flex-column" method="POST" action="/comments/:id">
                                                                 <%if(date.getTime() <=today.getTime() ){%>
                                                                     <div>
                                                                         <label class="w-25"for="rating">Rating:</label>
