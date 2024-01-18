@@ -33,7 +33,7 @@
                             <ul class="row align-items-center justify-content-center px-0 one" style="list-style: none">
                             <% for(let i=0; i<games.length; i++) { %>
                                 <% const thisGame=games[i] %>
-                                <div class="col-auto py-3 game-box">
+                                <div class="col-sm py-3 game-box d-flex justify-content-center">
                                     <a href="/games/<%=thisGame._id%>" ><img class="featured rounded border border-2 border-light "src="<%=thisGame.image%>" alt="<%=thisGame.name%>"></a> 
                                 </div>
                                     
