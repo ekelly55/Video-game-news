@@ -1,17 +1,19 @@
-import mongoose, {Document}  from "mongoose";
+import mongoose, {Document, Schema}  from "mongoose";
+import Comment from "../comments/comments.interface";
 
 
 
 interface Games extends Document {
-    name: string,
-    image: string,
-    release: string,
-    genre: string,
-    price: number,
-    trailer: string,
-    platform: string,
-    rating: string,
-    comments: {type: mongoose.Types.ObjectId, ref: "Comment"},
+    name: string;
+    image: string;
+    release: string;
+    genre: string;
+    price: number;
+    trailer: string;
+    platform: string;
+    rating: string;
+    comments: mongoose.Types.ObjectId[] | Comment[];
+    createdAt: Date;
 }
 
 const gamesSchema = new mongoose.Schema(
@@ -25,5 +27,12 @@ const gamesSchema = new mongoose.Schema(
         platform: {type: String},
         rating: {type: String, default: 0, min: 0, max: 5},
         comments: {type: mongoose.Types.ObjectId, ref: "Comment"},
+        createdAt: { type: Date, default: Date.now }
+        
     },
 );
+
+// Define mongoose model with User interface
+const Games = mongoose.model<Games>('Games', gamesSchema);
+
+export default Games
