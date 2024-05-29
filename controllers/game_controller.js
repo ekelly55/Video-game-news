@@ -20,7 +20,7 @@ router.get('/about_us', (req, res) => {
 
 
 
-
+//add a new game to db
 router.post('/', async (req, res) => {
     try{
         const newPost = await db.Games.create(req.body);
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     } 
 });
 
-
+//get games index
 router.get('/', async (req, res) => {
     try {
         const allPosts = await db.Games.find()
@@ -41,12 +41,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-
+//add new game form
 router.get('/new', (req,res) =>{
     res.render('games_new.ejs');
 });
 
-
+//game show page
 router.get('/:id', async (req,res, next) =>{
     try{
         const foundGame = await db.Games.findById(req.params.id)
@@ -60,7 +60,7 @@ router.get('/:id', async (req,res, next) =>{
     }
 });
 
-
+//delete game
 router.delete('/:id', async (req, res, next)=>{
     try{
         const deletedGame = await db.Games.findByIdAndDelete(req.params.id)
@@ -73,7 +73,7 @@ router.delete('/:id', async (req, res, next)=>{
     }
 });
 
-
+//update game form
 router.get('/:id/edit', async (req, res, next)=>{
     try{
         const updatedGame = await db.Games.findById(req.params.id)
@@ -85,7 +85,7 @@ router.get('/:id/edit', async (req, res, next)=>{
     }
 });
 
-
+//update game in db
 router.put ('/:id', async (req,res,next)=>{
     try{
         const updatedGame = await db.Games.findByIdAndUpdate(req.params.id, req.body);

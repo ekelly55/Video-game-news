@@ -3,7 +3,7 @@ import Comment from "../comments/comments.interface";
 
 
 
-interface Games extends Document {
+export interface IGames extends Document {
     name: string;
     image: string;
     release: string;
@@ -33,6 +33,6 @@ const gamesSchema = new mongoose.Schema(
 );
 
 // Define mongoose model with User interface
-const Games = mongoose.model<Games>('Games', gamesSchema);
+const Games = mongoose.model<IGames>('Games', gamesSchema);
 
 export default Games

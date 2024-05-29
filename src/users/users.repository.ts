@@ -4,18 +4,29 @@ import * as bcrypt from 'bcryptjs'
 import User from "./users.interface";
 import { IUser } from "./users.interface";
 import session from 'express-session'
+import * as dotenv from 'dotenv'
 
-// extend the 'express' namespace to include the 'session' property
-declare module 'express' {
-    interface Request {
-        session: session; 
-    }
-}
+dotenv.config()
 
 const userRouter = express.Router()
 
 userRouter.use(express.json())
 userRouter.use(express.urlencoded({extended: false}))
+
+//configure session middleware
+userRouter.use(session({
+    secret: process.env.SESSION_SECRET as string,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {secure: false}
+}))
+
+//extend session data to include user data
+declare module 'express-session' {
+    interface SessionData {
+        user: {id: string, username: string};
+    }
+}
 
 //GET /login
 
@@ -37,8 +48,8 @@ userRouter.post('/login', async (req: Request, res: Response, next: NextFunction
         } else {
             const match = await bcrypt.compare(userData.password, foundUser.password);
             if(!match) return res.send('Email or password are incorrect');
-            req.session.currentUser = {
-                id: foundUser._id,
+            req.session.user = {
+                id: foundUser._id.toString(),
                 username: foundUser.username,
             };
             return res.redirect('/games');
