@@ -2,7 +2,7 @@ import mongoose, {Document, Schema} from "mongoose";
 import Comment from "../comments/comments.interface";
 
 
-interface User extends Document {
+export interface IUser extends Document {
     email: string;
     password: string;
     username: string;
@@ -35,12 +35,12 @@ const userSchema = new mongoose.Schema(
             default: "https://i.imgur.com/VfBLBKRs.png"
         },
         
-        comments:{type: mongoose.Types.ObjectId, ref: "Comment"},
+        comments:[{type: mongoose.Types.ObjectId, ref: "Comment"}],
         createdAt: {type: Date, default: Date.now}
     },
 
 );
 
-const User = mongoose.model<User>('User', userSchema)
+const User = mongoose.model<IUser>('User', userSchema)
 
 export default User

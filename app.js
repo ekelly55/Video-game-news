@@ -6,18 +6,6 @@ import helmet from "helmet"
 
 dotenv.config()
 
-
-const express = require('express');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
-
-
-require('./config/db.connections');
-const gamesController = require('./controllers/game_controller');
-const commentsController = require("./controllers/comment_controller");
-const userController = require('./controllers/user_controller');
-
-
 const app = express();
 const PORT = parseInt(process.env.PORT as string, 10);
 
@@ -48,10 +36,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-      
-app.use('/games', gamesController);
-app.use("/comments", commentsController);
-app.use('', userController);
+
     
     
 app.listen(process.env.PORT || 4000)
