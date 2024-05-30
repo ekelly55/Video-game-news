@@ -1,5 +1,6 @@
 import mongoose, {Document, Schema}  from "mongoose";
 import Comment from "../comments/comments.interface";
+import { IComment } from "../comments/comments.interface";
 
 
 
@@ -12,7 +13,7 @@ export interface IGames extends Document {
     trailer: string;
     platform: string;
     rating: string;
-    comments: mongoose.Types.ObjectId[] | Comment[];
+    comments: mongoose.Types.ObjectId[] | IComment[];
     createdAt: Date;
 }
 

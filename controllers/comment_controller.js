@@ -8,7 +8,7 @@ router.use(express.json());
 router.use(express.urlencoded({extended: false}));
 router.use(methodOverride("_method"));
 
-
+//post a comment on a game
 router.post("/:id", async (req, res, nex) => {
     try {
         const newComment = await db.Comment.create(req.body);
@@ -19,7 +19,7 @@ router.post("/:id", async (req, res, nex) => {
     }
 });
 
-
+//show comments
 router.get("/:id/", async (req, res, next) => {
     try {
         const foundComment = await db.Comment.findById(req.params.id).populate("game").exec()

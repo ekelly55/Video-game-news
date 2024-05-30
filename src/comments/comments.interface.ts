@@ -1,12 +1,14 @@
 import mongoose, {Document, Schema} from "mongoose";
-import User from "../users/users.interface"; 
+import {IGames} from "../games/games.interface";
+import {IUser} from "../users/users.interface";
 import Games from "../games/games.interface";
+import User from "../users/users.interface";
 
-interface Comment extends Document {
+export interface IComment extends Document {
     comment: string;
     rating: number;
-    game: mongoose.Types.ObjectId | Games;
-    user: mongoose.Types.ObjectId | User;
+    game: mongoose.Types.ObjectId | IGames;
+    user: mongoose.Types.ObjectId | IUser;
     createdAt: Date;
 }
 
@@ -18,6 +20,6 @@ const commentSchema = new mongoose.Schema ({
     createdAt: {type: Date, default: Date.now}
 });
 
-const Comment = mongoose.model<Comment>('Comment', commentSchema);
+const Comment = mongoose.model<IComment>('Comment', commentSchema);
 
 export default Comment;
