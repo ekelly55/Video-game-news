@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express"
 import methodOverride from 'method-override'
 import Games from "./games.interface";
 import { IGames } from "./games.interface";
-import Comment from "../comments/comments.interface";
+import GamesRepository from "./games.repository";
 
 const gamesRouter = express.Router()
 

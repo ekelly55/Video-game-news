@@ -2,7 +2,9 @@ import ICommentsRepository from "./Icomments.repository";
 import { IComment } from "./comments.interface";
 import Comment from "./comments.interface";
 
+
 class CommentsRepository implements ICommentsRepository {
+    //Create comment
     async createComment(commentData: IComment): Promise<IComment> {
         try {
             const newComment = await Comment.create(commentData);
@@ -11,6 +13,7 @@ class CommentsRepository implements ICommentsRepository {
             throw new Error(`Error creating comment: ${error}`);
         }
     }
+    //get comments for a game
     async getCommentsByGameId(gameId: string): Promise<IComment[] | null> {
         try {
             const comments = await Comment.find({ game: gameId }).populate('user').exec();
@@ -19,7 +22,7 @@ class CommentsRepository implements ICommentsRepository {
             throw new Error(`Error fetching comments for game ID ${gameId}: ${error}`);
         }
     }
-    
+    //delete comment
     async deleteComment(commentId: string): Promise<void> {
         try {
             await Comment.findByIdAndDelete(commentId);
