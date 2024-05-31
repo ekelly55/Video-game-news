@@ -3,12 +3,15 @@ import { Request, Response, NextFunction } from "express"
 import * as bcrypt from 'bcryptjs'
 import User from "./users.interface";
 import { IUser } from "./users.interface";
+import UserRepository from "./users.repository";
 import session from 'express-session'
 import * as dotenv from 'dotenv'
 
 dotenv.config()
 
 const userRouter = express.Router()
+
+const userRepo = new UserRepository
 
 userRouter.use(express.json())
 userRouter.use(express.urlencoded({extended: false}))
@@ -41,21 +44,14 @@ userRouter.get('/register', (req: Request, res: Response) => {
 
 userRouter.post('/login', async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const userData = req.body as {username: string, password: string};
-        const foundUser = await User.findOne({usuername: userData.username});
+        const {username, password} = req.body
+        const foundUser = await userRepo.loginUser(username, password)
         if(!foundUser){
-            return res.redirect('/register');
-        } else {
-            const match = await bcrypt.compare(userData.password, foundUser.password);
-            if(!match) return res.send('Email or password are incorrect');
-            req.session.user = {
-                id: foundUser._id.toString(),
-                username: foundUser.username,
-            };
-            return res.redirect('/games');
-        }
-    }
-    catch(err) {
+            return res.status(401).json({message: "Invalid username or password"});
+        }    
+        req.session.userId = foundUser?._id;
+        res.status(200).json(foundUser)
+    } catch(err) {
         console.error(err);
         next(err);
     }
@@ -65,32 +61,23 @@ userRouter.post('/login', async (req: Request, res: Response, next: NextFunction
 userRouter.post('/register', async (req: Request, res: Response, next: NextFunction) => {
     try {
         const userData = req.body as IUser;
-        const foundUser = await User.exists({ email: userData.email });
-        if (foundUser) {
-            return res.redirect('/login');
+        const newUser = await userRepo.registerUser(userData);
+        res.status(201).json(newUser);
+    } catch (error) {
+        if(error.message === 'User already exists'){
+            res.status(409).redirect('login');
         } else {
-            const salt = await bcrypt.genSalt(12);
-            const hash = await bcrypt.hash(userData.password, salt);
-            userData.password = hash;
-            const newUser = await User.create(userData);
-            return res.redirect('/login');
+            console.log(error);
+            next(error)
         }
-    } catch (err) {
-        console.error(err);
-        next(err);
     }
 });
 
 // GET /logout
 userRouter.get('/logout', async (req: Request, res: Response) => {
     try {
-        req.session.destroy((err) => {
-            if (err) {
-                console.error(err);
-                return res.send(err);
-            }
-            return res.redirect('/login');
-        });
+        await userRepo.logoutUser(req);
+        res.status(200).json({message: "Logged out successfully"})
     } catch (err) {
         console.error(err);
         return res.send(err);
