@@ -59,7 +59,7 @@ gamesRouter.get('/', async (req, res, next) => {
     }
     catch (err) {
         console.log(err);
-        res.status(500).send('Internal server error');
+        res.status(500).send('Internal server error index page');
     }
 });
 //GET game show page
@@ -71,11 +71,11 @@ gamesRouter.get('/:id', async (req, res, next) => {
             return;
         }
         const context = { game: foundGame };
-        res.render('games_show.ejs,', context);
+        res.send(context);
     }
     catch (err) {
         console.log(err);
-        res.status(500).send('Internal server error');
+        res.status(500).send('Internal server error show page');
     }
 });
 //DELETE game

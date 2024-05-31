@@ -28,6 +28,10 @@ app.use('/games', gamesRouter)
 app.use('/', userRouter)
 app.use('/games', commentsRouter)
 
+//view engine
+app.set('view engine', 'ejs');
+
+
 //connect to MongoDB
 
 connectDB()

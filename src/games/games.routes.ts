@@ -36,7 +36,7 @@ gamesRouter.get('/', async (req: Request, res: Response, next: NextFunction) => 
         res.render('games_index.ejs', context);
     } catch(err) {
         console.log(err)
-        res.status(500).send('Internal server error')
+        res.status(500).send('Internal server error index page')
     }
 });
 
@@ -50,10 +50,10 @@ gamesRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) 
         }
         
         const context = {game: foundGame};
-        res.render('games_show.ejs,', context);
+        res.send(context);
     } catch(err){
         console.log(err)
-        res.status(500).send('Internal server error')
+        res.status(500).send('Internal server error show page')
     }
 });
 
@@ -70,7 +70,7 @@ gamesRouter.delete('/:id', async (req: Request, res: Response, next: NextFunctio
 
 // GET update game form
 gamesRouter.get('/:id/edit', async (req: Request, res: Response, next: NextFunction )=>{
-        res.render('games_edit.ejs')
+        res.send('edit game form goes here')
 });
 
 //PUT update game in db

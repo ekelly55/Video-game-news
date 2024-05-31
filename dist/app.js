@@ -24,6 +24,8 @@ app.use((0, express_session_1.default)({
 app.use('/games', games_routes_1.default);
 app.use('/', users_routes_1.default);
 app.use('/games', comments_routes_1.default);
+//view engine
+app.set('view engine', 'ejs');
 //connect to MongoDB
 (0, database_1.connectDB)()
     .then(() => {

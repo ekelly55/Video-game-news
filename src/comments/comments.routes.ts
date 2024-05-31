@@ -33,7 +33,7 @@ commentsRouter.post('/:gameId', async (req: Request, res: Response, next: NextFu
 });
 
 //GET comments index for game
-commentsRouter.get('/:gameId', async (req: Request, res: Response) => {
+commentsRouter.get('/:gameId/comments', async (req: Request, res: Response) => {
     try {
         const gameId = req.params.gameId;
         const foundComments = await commentsRepo.getCommentsByGameId(gameId);
@@ -41,10 +41,10 @@ commentsRouter.get('/:gameId', async (req: Request, res: Response) => {
             return res.status(404).send("Comment not found");
         }
         const context = {comments: [foundComments]};
-        res.render('comment_index.ejs', context);
+        res.send(context);
     } catch(err) {
         console.log(err)
-        res.status(500).send('Internal server error')
+        res.status(500).send('Internal server error comments index')
     }
 });
 
