@@ -31,6 +31,10 @@ declare module 'express-session' {
     }
 }
 
+function isError(error: unknown): error is Error{
+    return error instanceof Error;
+}
+
 //GET /login
 
 userRouter.get('/login', (req: Request, res: Response) => {
@@ -49,7 +53,7 @@ userRouter.post('/login', async (req: Request, res: Response, next: NextFunction
         if(!foundUser){
             return res.status(401).json({message: "Invalid username or password"});
         }    
-        req.session.userId = foundUser?._id;
+        req.session.user = {id:foundUser._id.toString(), username: foundUser.username}
         res.status(200).json(foundUser)
     } catch(err) {
         console.error(err);
@@ -64,7 +68,7 @@ userRouter.post('/register', async (req: Request, res: Response, next: NextFunct
         const newUser = await userRepo.registerUser(userData);
         res.status(201).json(newUser);
     } catch (error) {
-        if(error.message === 'User already exists'){
+        if(isError(error) && error.message === 'User already exists'){
             res.status(409).redirect('login');
         } else {
             console.log(error);
