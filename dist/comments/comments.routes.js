@@ -22,15 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -44,23 +35,23 @@ commentsRouter.use(express.json());
 commentsRouter.use(express.urlencoded({ extended: false }));
 commentsRouter.use((0, method_override_1.default)('_method'));
 // POST add comment to game
-commentsRouter.post('/:gameId', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+commentsRouter.post('/:gameId', async (req, res, next) => {
     try {
         const gameId = req.params.gameId;
-        const commentData = Object.assign(Object.assign({}, req.body), { game: gameId });
-        const newComment = yield commentsRepo.createComment(commentData);
+        const commentData = { ...req.body, game: gameId };
+        const newComment = await commentsRepo.createComment(commentData);
         return res.redirect(`/games/${gameId}`);
     }
     catch (err) {
         console.error(err);
         next(err);
     }
-}));
+});
 //GET comments index for game
-commentsRouter.get('/:gameId', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+commentsRouter.get('/:gameId', async (req, res) => {
     try {
         const gameId = req.params.gameId;
-        const foundComments = yield commentsRepo.getCommentsByGameId(gameId);
+        const foundComments = await commentsRepo.getCommentsByGameId(gameId);
         if (!foundComments) {
             return res.status(404).send("Comment not found");
         }
@@ -71,18 +62,18 @@ commentsRouter.get('/:gameId', (req, res) => __awaiter(void 0, void 0, void 0, f
         console.log(err);
         res.status(500).send('Internal server error');
     }
-}));
+});
 //DELETE comment
-commentsRouter.delete('/:gameId/comments/:commentId', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+commentsRouter.delete('/:gameId/comments/:commentId', async (req, res, next) => {
     try {
         const gameId = req.params.gameId;
         const commentId = req.params.commendId;
-        const deletedComment = yield commentsRepo.deleteComment(commentId);
+        const deletedComment = await commentsRepo.deleteComment(commentId);
         return res.redirect(`/games/${gameId}`);
     }
     catch (err) {
         console.log(err);
         next(err);
     }
-}));
+});
 exports.default = commentsRouter;

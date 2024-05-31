@@ -23,16 +23,16 @@ class UserRepository implements IUserRepository {
 
     async loginUser(username: string, password: string): Promise<IUser | null>{
         try {
-            const user = await User.findOne({username}).exec()
-            if(!user){
+            const foundUser = await User.findOne({username})
+            if(!foundUser){
                 return null;
             }
             
-            const isMatch = await bcrypt.compare(password, user.password)
+            const isMatch = await bcrypt.compare(password, foundUser.password)
             if(!isMatch){
                 return null
             }
-            return user;
+            return foundUser;
         } catch (error) {
             throw new Error(`Error: username or password incorrect ${error}`)
         }

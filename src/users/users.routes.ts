@@ -16,13 +16,7 @@ const userRepo = new UserRepository
 userRouter.use(express.json())
 userRouter.use(express.urlencoded({extended: false}))
 
-//configure session middleware
-userRouter.use(session({
-    secret: process.env.SESSION_SECRET as string,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {secure: false}
-}))
+
 
 //extend session data to include user data
 declare module 'express-session' {
@@ -53,7 +47,7 @@ userRouter.post('/login', async (req: Request, res: Response, next: NextFunction
         if(!foundUser){
             return res.status(401).json({message: "Invalid username or password"});
         }    
-        req.session.user = {id:foundUser._id.toString(), username: foundUser.username}
+        req.session.user = {id: foundUser._id.toString(), username: foundUser.username}
         res.status(200).json(foundUser)
     } catch(err) {
         console.error(err);

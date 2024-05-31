@@ -22,35 +22,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = __importStar(require("express"));
-const bcrypt = __importStar(require("bcryptjs"));
-const users_interface_1 = __importDefault(require("./users.interface"));
-const express_session_1 = __importDefault(require("express-session"));
+const users_repository_1 = __importDefault(require("./users.repository"));
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 const userRouter = express.Router();
+const userRepo = new users_repository_1.default;
 userRouter.use(express.json());
 userRouter.use(express.urlencoded({ extended: false }));
-//configure session middleware
-userRouter.use((0, express_session_1.default)({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false }
-}));
+function isError(error) {
+    return error instanceof Error;
+}
 //GET /login
 userRouter.get('/login', (req, res) => {
     res.render('login.ejs');
@@ -59,64 +45,47 @@ userRouter.get('/login', (req, res) => {
 userRouter.get('/register', (req, res) => {
     res.render('register.ejs');
 });
-userRouter.post('/login', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+userRouter.post('/login', async (req, res, next) => {
     try {
-        const userData = req.body;
-        const foundUser = yield users_interface_1.default.findOne({ usuername: userData.username });
+        const { username, password } = req.body;
+        const foundUser = await userRepo.loginUser(username, password);
         if (!foundUser) {
-            return res.redirect('/register');
+            return res.status(401).json({ message: "Invalid username or password" });
         }
-        else {
-            const match = yield bcrypt.compare(userData.password, foundUser.password);
-            if (!match)
-                return res.send('Email or password are incorrect');
-            req.session.user = {
-                id: foundUser._id.toString(),
-                username: foundUser.username,
-            };
-            return res.redirect('/games');
-        }
+        req.session.user = { id: foundUser._id.toString(), username: foundUser.username };
+        res.status(200).json(foundUser);
     }
     catch (err) {
         console.error(err);
         next(err);
     }
-}));
+});
 // POST /register
-userRouter.post('/register', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+userRouter.post('/register', async (req, res, next) => {
     try {
         const userData = req.body;
-        const foundUser = yield users_interface_1.default.exists({ email: userData.email });
-        if (foundUser) {
-            return res.redirect('/login');
+        const newUser = await userRepo.registerUser(userData);
+        res.status(201).json(newUser);
+    }
+    catch (error) {
+        if (isError(error) && error.message === 'User already exists') {
+            res.status(409).redirect('login');
         }
         else {
-            const salt = yield bcrypt.genSalt(12);
-            const hash = yield bcrypt.hash(userData.password, salt);
-            userData.password = hash;
-            const newUser = yield users_interface_1.default.create(userData);
-            return res.redirect('/login');
+            console.log(error);
+            next(error);
         }
     }
-    catch (err) {
-        console.error(err);
-        next(err);
-    }
-}));
+});
 // GET /logout
-userRouter.get('/logout', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+userRouter.get('/logout', async (req, res) => {
     try {
-        req.session.destroy((err) => {
-            if (err) {
-                console.error(err);
-                return res.send(err);
-            }
-            return res.redirect('/login');
-        });
+        await userRepo.logoutUser(req);
+        res.status(200).json({ message: "Logged out successfully" });
     }
     catch (err) {
         console.error(err);
         return res.send(err);
     }
-}));
+});
 exports.default = userRouter;
