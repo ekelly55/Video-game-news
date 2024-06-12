@@ -23,14 +23,21 @@ class CommentsRepository implements ICommentsRepository {
             throw new Error(`Error fetching comments for game ID ${gameId}: ${error}`);
         }
     }
+
+
+    async getCommentById(commentId: string): Promise<IComment | null> {
+        try {
+            const foundComment = await Comment.find({id: commentId}).populate('user').exec()
+        } catch (error) {
+            throw new Error(`Error fetching comment with ID ${commentId}: ${error}`)
+        }
+    }
+
     //delete comment - gets comment id from commentsRouter.delete 
     async deleteComment(commentId: string): Promise<void> {
-        try {
-            const foundComment = await Comment.findById(commentId);
-            if(req.currentUser === foundComment?.user){
-                await Comment.findByIdAndDelete(commentId)
-            }
-            
+        try {         
+            await Comment.findByIdAndDelete(commentId)
+        
         } catch (error) {
             throw new Error(`Error deleting comment with ID ${commentId}: ${error}`);
         }

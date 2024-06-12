@@ -22,7 +22,7 @@ class GamesRepository implements IGamesRepository {
     }
 
     
-    async getOneGame(gameId: string): Promise<IGames | null> {
+    async getGameById(gameId: string): Promise<IGames | null> {
         try {
             const game = await Games.findById(gameId);
             return game

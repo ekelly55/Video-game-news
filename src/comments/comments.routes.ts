@@ -54,7 +54,17 @@ commentsRouter.delete('/:gameId/comments/:commentId', async (req: Request, res: 
     try{
         //parse both ids from the req.params
         const {gameId, commentId} = req.params
-        const deletedComment = await commentsRepo.getCommentsById(commentId)
+        const foundComment = await commentsRepo.getCommentById(commentId)
+
+        if(!foundComment){
+            return res.status(404).json({ message: "Comment not found" });
+        }
+
+        if(foundComment.user !== req.currentUser){
+            return res.status(403).json({ message: "You are not authorized to delete this comment" });
+        }
+
+        await commentsRepo.deleteComment(commentId)
        
         return res.redirect(`/games/${gameId}`);
         
