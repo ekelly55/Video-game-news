@@ -52,9 +52,9 @@ commentsRouter.get('/:gameId/comments', async (req: Request, res: Response) => {
 //DELETE comment
 commentsRouter.delete('/:gameId/comments/:commentId', async (req: Request, res: Response, next: NextFunction) => {
     try{
-        const gameId = req.params.gameId;
-        const commentId = req.params.commendId
-        const deletedComment = await commentsRepo.deleteComment(commentId)
+        //parse both ids from the req.params
+        const {gameId, commentId} = req.params
+        const deletedComment = await commentsRepo.getCommentsById(commentId)
        
         return res.redirect(`/games/${gameId}`);
         

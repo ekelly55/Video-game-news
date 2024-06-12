@@ -5,7 +5,7 @@ import commentsRouter from "./comments/comments.routes"
 import gamesRouter from "./games/games.routes"
 import userRouter from "./users/users.routes"
 import {connectDB} from "./config/database"
-
+import { setCurrentUser } from "./middleware/setCurrentUser"
 
 const app = express()
 
@@ -21,6 +21,9 @@ app.use(session({
     saveUninitialized: false,
     cookie: {secure: false}
 }))
+
+//access the setcurrentuser middleware function
+app.use(setCurrentUser)
 
 //mount routers
 

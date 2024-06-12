@@ -1,6 +1,7 @@
 import ICommentsRepository from "./Icomments.repository";
 import { IComment } from "./comments.interface";
 import Comment from "./comments.interface";
+import { setCurrentUser } from "../middleware/setCurrentUser";
 
 
 class CommentsRepository implements ICommentsRepository {
@@ -22,10 +23,14 @@ class CommentsRepository implements ICommentsRepository {
             throw new Error(`Error fetching comments for game ID ${gameId}: ${error}`);
         }
     }
-    //delete comment
+    //delete comment - gets comment id from commentsRouter.delete 
     async deleteComment(commentId: string): Promise<void> {
         try {
-            await Comment.findByIdAndDelete(commentId);
+            const foundComment = await Comment.findById(commentId);
+            if(req.currentUser === foundComment?.user){
+                await Comment.findByIdAndDelete(commentId)
+            }
+            
         } catch (error) {
             throw new Error(`Error deleting comment with ID ${commentId}: ${error}`);
         }
